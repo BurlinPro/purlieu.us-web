@@ -59,21 +59,17 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Visual - Abstract instead of headshot */}
+          {/* Right Visual - Clean abstract image (no overlay box) */}
           <div className="lg:col-span-5 relative hidden lg:flex justify-end">
             <div className="relative w-full max-w-md">
-              <div className="aspect-[4/3] bg-gradient-to-br from-teal/20 to-transparent rounded-sm overflow-hidden border border-white/10">
-                {/* You can replace this with a real hero image later */}
+              <div className="aspect-[4/3] bg-gradient-to-br from-teal/20 to-transparent rounded-sm overflow-hidden border border-white/10 shadow-2xl">
                 <Image
-                  src="/images/hero-visual.jpg" 
+                  src="/images/hero-visual.jpg"
                   alt="Frontier market expansion"
                   fill
-                  className="object-cover opacity-75"
+                  className="object-cover"
                   priority
                 />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 shadow-xl max-w-[260px]">
-                <p className="text-sm font-medium text-navy">30+ Years • 26 Countries • Hands-on Execution</p>
               </div>
             </div>
           </div>
