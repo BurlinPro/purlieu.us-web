@@ -8,19 +8,19 @@ const stats = [
 
 export function StatsBar() {
   return (
-    <section className="bg-navy py-10">
+    <section className="bg-navy py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-6">
           {stats.map(({ value, label }, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-center gap-1.5 group"
+              className="flex flex-col items-center text-center gap-2 group"
             >
-              <span className="font-display text-3xl md:text-4xl font-semibold text-white leading-none">
+              <span className="font-display text-4xl md:text-5xl font-semibold text-white leading-none">
                 {value}
               </span>
-              <span className="block w-6 h-px bg-gold mx-auto" />
-              <span className="font-sans text-xs font-medium tracking-[0.12em] uppercase text-white/50">
+              <span className="block w-8 h-px bg-gold/60 mx-auto" />
+              <span className="font-sans text-xs font-medium tracking-[0.12em] uppercase text-white/70">
                 {label}
               </span>
             </div>

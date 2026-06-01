@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react'
 import { PurlieuLogo } from '@/components/ui/PurlieuLogo'
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/insights', label: 'Insights' },
@@ -24,7 +25,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setOpen(false)
   }, [pathname])
