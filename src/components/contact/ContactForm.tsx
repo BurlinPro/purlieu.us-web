@@ -1,171 +1,134 @@
 'use client'
 
 import { useState } from 'react'
-import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 
-interface FormState {
-  name: string
-  email: string
-  company: string
-  message: string
-}
-
-const initial: FormState = { name: '', email: '', company: '', message: '' }
-
-export function ContactForm() {
-  const [form, setForm] = useState<FormState>(initial)
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+  })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.email || !form.message) return
-
     setStatus('loading')
-    setErrorMessage('')
 
     try {
-      const res = await fetch('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(formData),
       })
 
-      if (!res.ok) {
-        const data = await res.json()
-        throw new Error(data?.error || 'Submission failed.')
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', company: '', message: '' })
+      } else {
+        throw new Error('Failed to send message')
       }
-
-      setStatus('success')
-      setForm(initial)
-    } catch (err: unknown) {
+    } catch (error) {
       setStatus('error')
-      setErrorMessage(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
-      )
+      setErrorMessage('Something went wrong. Please try again or email us directly.')
     }
   }
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center text-center py-16 px-6">
-        <CheckCircle size={48} className="text-gold mb-6" strokeWidth={1.5} />
-        <h3 className="font-display font-semibold text-navy text-3xl mb-3">
-          Message Received
-        </h3>
-        <p className="font-sans text-base text-navy/60 max-w-sm leading-relaxed">
-          Thank you for reaching out. Burton reviews all inquiries personally and
-          will be in touch shortly.
+      <div className="max-w-lg mx-auto text-center py-16">
+        <CheckCircle className="w-16 h-16 text-teal mx-auto mb-6" />
+        <h3 className="font-display text-3xl text-navy mb-4">Message Received</h3>
+        <p className="text-navy/70 text-lg">
+          Thank you. We&apos;ll get back to you within 1-2 business days.
         </p>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
-
-      {/* Name + Company */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block font-sans text-xs font-semibold tracking-[0.12em] uppercase text-navy/60 mb-2">
-            Name <span className="text-gold">*</span>
+          <label className="block font-sans text-sm font-medium text-navy mb-2">
+            Your Name <span className="text-red-500">*</span>
           </label>
           <input
-            id="name"
-            name="name"
             type="text"
-            required
-            value={form.name}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            placeholder="Your full name"
-            className="w-full px-4 py-3 bg-white border border-cream-deeper focus:border-navy/40 focus:outline-none rounded-sm font-sans text-sm text-navy placeholder:text-navy/30 transition-colors"
+            required
+            className="w-full px-5 py-3.5 border border-cream-deeper focus:border-teal rounded-sm outline-none transition-all"
+            placeholder="Alex Rivera"
           />
         </div>
         <div>
-          <label htmlFor="company" className="block font-sans text-xs font-semibold tracking-[0.12em] uppercase text-navy/60 mb-2">
-            Company
+          <label className="block font-sans text-sm font-medium text-navy mb-2">
+            Email Address <span className="text-red-500">*</span>
           </label>
           <input
-            id="company"
-            name="company"
-            type="text"
-            value={form.company}
+            type="email"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
-            placeholder="Company or organization"
-            className="w-full px-4 py-3 bg-white border border-cream-deeper focus:border-navy/40 focus:outline-none rounded-sm font-sans text-sm text-navy placeholder:text-navy/30 transition-colors"
+            required
+            className="w-full px-5 py-3.5 border border-cream-deeper focus:border-teal rounded-sm outline-none transition-all"
+            placeholder="you@company.com"
           />
         </div>
       </div>
 
-      {/* Email */}
       <div>
-        <label htmlFor="email" className="block font-sans text-xs font-semibold tracking-[0.12em] uppercase text-navy/60 mb-2">
-          Email <span className="text-gold">*</span>
+        <label className="block font-sans text-sm font-medium text-navy mb-2">
+          Company / Organization
         </label>
         <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          value={form.email}
+          type="text"
+          name="company"
+          value={formData.company}
           onChange={handleChange}
-          placeholder="your@email.com"
-          className="w-full px-4 py-3 bg-white border border-cream-deeper focus:border-navy/40 focus:outline-none rounded-sm font-sans text-sm text-navy placeholder:text-navy/30 transition-colors"
+          className="w-full px-5 py-3.5 border border-cream-deeper focus:border-teal rounded-sm outline-none transition-all"
+          placeholder="Acme Ventures"
         />
       </div>
 
-      {/* Message */}
       <div>
-        <label htmlFor="message" className="block font-sans text-xs font-semibold tracking-[0.12em] uppercase text-navy/60 mb-2">
-          Message <span className="text-gold">*</span>
+        <label className="block font-sans text-sm font-medium text-navy mb-2">
+          How can we help you? <span className="text-red-500">*</span>
         </label>
         <textarea
-          id="message"
           name="message"
+          value={formData.message}
+          onChange={handleChange}
           required
           rows={6}
-          value={form.message}
-          onChange={handleChange}
-          placeholder="Describe what you're working on and how Purlieu might help..."
-          className="w-full px-4 py-3 bg-white border border-cream-deeper focus:border-navy/40 focus:outline-none rounded-sm font-sans text-sm text-navy placeholder:text-navy/30 transition-colors resize-none"
+          className="w-full px-5 py-3.5 border border-cream-deeper focus:border-teal rounded-sm outline-none resize-y min-h-[140px] transition-all"
+          placeholder="We're looking to expand into the Philippines and need support with market entry strategy and local partnerships..."
         />
       </div>
 
-      {/* Error */}
       {status === 'error' && (
-        <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-sm">
-          <AlertCircle size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-          <p className="font-sans text-sm text-red-700">{errorMessage}</p>
-        </div>
+        <p className="text-red-600 text-sm">{errorMessage}</p>
       )}
 
-      {/* Submit */}
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-navy text-white font-sans text-sm font-semibold tracking-wide rounded-sm hover:bg-navy-mid disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
+        className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 bg-navy hover:bg-navy-dark text-white font-medium rounded-sm transition-all disabled:opacity-70 group"
       >
-        {status === 'loading' ? (
-          <>
-            <Loader2 size={15} className="animate-spin" />
-            Sending…
-          </>
-        ) : (
-          <>
-            <Send size={15} />
-            Send Message
-          </>
-        )}
+        {status === 'loading' ? 'Sending...' : 'Send Message'}
+        <ArrowRight className="group-hover:translate-x-1 transition" />
       </button>
 
-      <p className="font-sans text-xs text-navy/40">
-        All inquiries are reviewed personally by Burton Crapps.
+      <p className="text-xs text-navy/50 text-center">
+        Or email us directly at <a href="mailto:info@purlieu.us" className="underline hover:text-navy">info@purlieu.us</a>
       </p>
     </form>
   )
