@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Eye, EyeOff, Loader2, CheckCircle, AlertCircle, User, X } from 'lucide-react'
+import { Eye, EyeOff, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
+import { LinkedInIcon, XIcon } from '@/components/ui/BrandIcons'
 import { titleToSlug } from '@/lib/markdown'
 
 const CATEGORIES = ['Emerging Markets', 'Strategy', 'Financial Inclusion', 'Cross-Border', 'Infrastructure', 'Capital', 'Insights']
@@ -276,7 +277,7 @@ export function NewPostForm() {
                   target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2.5 px-3 py-2.5 bg-[#0A66C2]/10 text-[#0A66C2] rounded-sm text-sm font-sans font-medium hover:bg-[#0A66C2]/20 transition-colors"
                 >
-                  <User size={14} />
+                  <LinkedInIcon size={14} />
                   Share on LinkedIn
                 </a>
                 <a
@@ -284,7 +285,7 @@ export function NewPostForm() {
                   target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2.5 px-3 py-2.5 bg-black/5 text-black rounded-sm text-sm font-sans font-medium hover:bg-black/10 transition-colors"
                 >
-                  <X size={14} />
+                  <XIcon size={14} />
                   Share on X
                 </a>
               </div>

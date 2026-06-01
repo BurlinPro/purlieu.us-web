@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Linkedin } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { LinkedInIcon } from '@/components/ui/BrandIcons'
 
 export const metadata: Metadata = {
   title: 'About Burton Crapps Sr.',
@@ -133,7 +134,7 @@ export default function AboutPage() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-5 py-3.5 border border-navy/20 rounded-sm hover:border-navy hover:bg-navy/5 transition-all group"
                   >
-                    <Linkedin size={18} className="text-navy" />
+                    <LinkedInIcon size={18} className="text-navy" />
                     <span className="font-sans text-sm font-medium text-navy">
                       Connect on LinkedIn
                     </span>

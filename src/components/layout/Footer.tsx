@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Mail, Linkedin } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { LinkedInIcon } from '@/components/ui/BrandIcons'
 import { PurlieuLogo } from '@/components/ui/PurlieuLogo'
 
 const navLinks = [
@@ -66,7 +67,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 font-sans text-xs text-white/50 hover:text-white transition-colors"
             >
-              <Linkedin size={12} className="text-gold" />
+              <LinkedInIcon size={12} className="text-gold" />
               LinkedIn
             </a>
           </div>

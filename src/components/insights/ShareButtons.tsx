@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { User, X, Link, Check } from 'lucide-react'
+import { Link, Check } from 'lucide-react'
+import { LinkedInIcon, XIcon } from '@/components/ui/BrandIcons'
 
 interface ShareButtonsProps {
   title: string
@@ -38,7 +39,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         aria-label="Share on LinkedIn"
         className="flex items-center gap-1.5 px-3 py-2 bg-[#0A66C2]/10 text-[#0A66C2] rounded-sm font-sans text-xs font-semibold hover:bg-[#0A66C2]/20 transition-colors"
       >
-        <Linkedin size={13} />
+        <LinkedInIcon size={13} />
         LinkedIn
       </a>
 
@@ -50,7 +51,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         aria-label="Share on X"
         className="flex items-center gap-1.5 px-3 py-2 bg-black/5 text-black rounded-sm font-sans text-xs font-semibold hover:bg-black/10 transition-colors"
       >
-        <Twitter size={13} />
+        <XIcon size={13} />
         X
       </a>
 
