@@ -2,12 +2,68 @@ import { InsightPost } from './types'
 
 export const insights: InsightPost[] = [
   {
+  slug: 'start-over-strong',
+  title: 'Start Over Strong: 5 Shifts That Turn Disruption Into Your Next Big Move',
+  date: '2026-05-30',
+  category: 'Strategy',
+  readTime: '10 min read',
+  featured: true,
+  excerpt:
+    'Disruption is not the end of the story. In twenty-five years of counseling people through crisis and building businesses across borders, the pattern is consistent: the people who recover fastest are not the ones with the most resources. They are the ones willing to stop at the tree line and look outward.',
+  content: `
+    <p>The word <strong>failure</strong> is a verdict. And verdicts are final. That is precisely why the word is so dangerous — not because it hurts, but because it stops thought. The moment we label something a failure, we stop extracting value from it. We close the file. We walk away from the most expensive education we ever received.</p>
+
+    <h3>Shift 1: Stop Calling It Failure</h3>
+    <p>In twenty-five years of counseling people through crisis, I never once met a person whose disruption — job loss, divorce, bankruptcy, collapse — was actually the end of their story. Not one. What I did meet, over and over, was people who had accepted a verdict too early.</p>
+    <p>The entrepreneur who shut down her first business didn't fail. She completed an expensive, irreplaceable course in what doesn't work — which is the only reliable path to discovering what does. The executive who got pushed out didn't fail. He discovered that the architecture he was building inside someone else's vision needed to become his own.</p>
+    <p><strong>Failure is an event. It is never an identity.</strong></p>
+    <p>What happened to you is not who you are. It is information about where you were, what you knew at the time, and what the market or the moment required. Nothing more.</p>
+    <p><em>The Shift:</em> Take the last disruption you experienced and write down three things it taught you that you could not have learned any other way. That list is not a consolation prize. That list is your inventory.</p>
+
+    <h3>Shift 2: Audit What Actually Survived</h3>
+    <p>When disruption hits, we instinctively inventory our losses. The company. The income. The title. The network. The certainty. We count what's gone with remarkable precision, and we mourn it with remarkable thoroughness. What we almost never do is count what remained.</p>
+    <p>The people who recovered fastest were not the ones with the most resources. They were the ones who did an honest audit — not of what disruption took, but of what it couldn't touch. Because disruption is ruthless, but it is also surprisingly selective.</p>
+    <p>It can take your company. It cannot take what you learned building it. It can take your title. It cannot take the relationships built on genuine trust. It can take your certainty. It cannot take your instincts, sharpened by years of real decisions in real markets.</p>
+    <p>I have crossed borders, raised capital, restructured operations, and navigated emerging markets that had no rulebook. None of that lived in a bank account or a business registration. It lived in me. Disruption never found it.</p>
+    <p><em>The Shift:</em> Before you build anything new, write two lists. What disruption took. And what it couldn't. The second list will surprise you.</p>
+
+    <h3>Shift 3: Rebuild Your Identity Before Your Business</h3>
+    <p>This is the shift most people skip. And it is the reason most people who rebuild after disruption find themselves, two or three years later, in almost identical trouble. Different industry. Different product. Different city sometimes. Same result. They rebuilt the business before they rebuilt themselves.</p>
+    <p>As a minister, I watched people leave devastating marriages and walk straight into identical ones. Leave toxic organizations and immediately join another with the same dysfunction at its core. The details changed. The pattern didn't. Because the one constant in every situation they entered was them — and that part hadn't been examined.</p>
+    <p>When I stepped out of ministry and into the marketplace, I carried assumptions about leadership, authority, trust, and human nature that had been formed in a completely different world. Some of them served me well. Others nearly broke what I was trying to build. I had changed careers without fully auditing the identity I was carrying into the new one.</p>
+    <p><strong>You cannot build a new thing from an old self-image.</strong></p>
+    <p>The most important structure you will ever build is the internal one — your understanding of who you are now, after everything that has happened, and what you are actually capable of from this point forward.</p>
+    <p><em>The Shift:</em> Ask yourself one honest question: Am I building something new, or am I trying to recover something old? Recovery looks backward. Reinvention looks forward. The goal is not to return to who you were before. The goal is to become who you could only be because of what you went through.</p>
+
+    <h3>Shift 4: Find the Purlieu</h3>
+    <p>There is a word that has guided everything I have built. <strong>Purlieu.</strong></p>
+    <p>It comes from medieval England — the land just beyond the forest boundary. For generations, common people believed the forest marked the edge of their world. The trees were the limit. What lay beyond belonged to someone else, or to the unknown, or to danger too great to risk. Then the boundaries were released. The purlieu opened.</p>
+    <p>And what people discovered changed everything — not because the land beyond the forest was magical, but because it was simply there. It had always been there. The limit was never the forest. The limit was the belief that the forest was the end.</p>
+    <p>What disruption does — if you let it — is forcibly relocate you to the tree line. It removes the comfortable interior. It strips away the familiar. And it leaves you standing at the boundary of everything you thought defined you. That moment — as terrifying as it feels — is the most valuable place you have ever stood. Because from the tree line, you can finally see the purlieu.</p>
+    <p>In practical terms, finding your purlieu means asking a different set of questions. Not "how do I get back to where I was?" but "what does everything I've been through make possible that wasn't possible before?" Not "who will hire someone with my background?" but "what problem can only someone with my exact combination of experience solve?"</p>
+    <p>My purlieu sits at the intersection of human understanding and business architecture. Twenty-five years of sitting with people in crisis. Two decades of building across borders. A season of disruption that stripped away everything that wasn't essential. None of that was wasted. All of it was preparation.</p>
+    <p><em>The Shift:</em> Stop asking what disruption cost you. Start asking what it positioned you for. The forest was never the limit. It was only the edge of sight. Your purlieu is waiting.</p>
+
+    <h3>Shift 5: Build the Next Thing Leaner and Smarter</h3>
+    <p>Everything up to this point has been internal work. But at some point you have to pick up the tools and build. And here is where most people make their second expensive mistake: they build the next thing the same way they built the last thing.</p>
+    <p>I have built companies on three continents. I have watched well-capitalized ventures collapse under their own weight and lean, focused operations quietly generate extraordinary results. The pattern is consistent enough that I now consider it a law: <strong>complexity is not sophistication. It is usually fear wearing a suit.</strong></p>
+    <p>We build complexity because it feels like progress. We add layers because layers feel like protection. We over-engineer because over-engineering feels like we are taking it seriously. What we are actually doing is delaying the moment of truth — the moment when the market tells us whether what we are building actually solves a real problem for real people.</p>
+    <p>After my own period of rebuilding, I made a deliberate choice to operate differently. Fewer layers. Smaller footprint. Faster decisions. More direct contact with the people I was serving. Start with one problem. Validate before you build. Keep your overhead honest. Stay close to the customer. Measure what matters: Are people buying? Are they coming back? Are they sending others?</p>
+    <p><em>The Shift:</em> Before you build anything, write one sentence: I help [specific person] solve [specific problem] using [your unique experience]. If you can't write that sentence clearly, you're not ready to build yet. When you can write it without hesitation — you're already halfway there.</p>
+
+    <h3>The Other Side of the Forest</h3>
+    <p>These five shifts are not isolated ideas. They are a sequence. You stopped calling it failure — and reclaimed your experience as education. You audited what survived — and discovered your inventory is richer than you thought. You rebuilt your identity before your business — and freed yourself from the ceiling of an old self-image. You found your purlieu — the specific intersection only you can occupy. You committed to building the next thing leaner and smarter — closer to the problem only you are positioned to solve.</p>
+    <p>That is not a recovery plan. That is a reinvention architecture.</p>
+    <p>The other side of the forest is real. It is not promised to the most talented. It is not reserved for the best-resourced. It is available to the ones who are willing to stop treating the tree line as a wall and start treating it as a doorway. You have already survived what tried to stop you. Now build what only you can build.</p>
+  `,
+},
+  {
     slug: 'invisible-infrastructure-emerging-markets',
     title: 'The Invisible Infrastructure: Why Emerging Markets Stall Before They Scale',
     date: '2025-10-15',
     category: 'Emerging Markets',
     readTime: '5 min read',
-    featured: true,
+    featured: false,
     excerpt:
       'Most businesses entering emerging markets focus on product-market fit. They miss the more fundamental question: does the infrastructure required to support the business actually exist?',
     content: `
