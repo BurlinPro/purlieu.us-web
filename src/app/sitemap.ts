@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { getAllInsights } from '@/lib/insights'
+import { getPublishedPosts } from '@/lib/db/posts'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://purlieu.us'
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -12,12 +13,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
   ]
 
-  const insightRoutes: MetadataRoute.Sitemap = getAllInsights().map((post) => ({
+  const staticInsightRoutes: MetadataRoute.Sitemap = getAllInsights().map((post) => ({
     url: `${base}/insights/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...insightRoutes]
+  let dbInsightRoutes: MetadataRoute.Sitemap = []
+  try {
+    const dbPosts = await getPublishedPosts()
+    dbInsightRoutes = dbPosts.map((p) => ({
+      url: `${base}/insights/${p.slug}`,
+      lastModified: new Date(p.updated_at),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }))
+  } catch { /* Supabase not configured */ }
+
+  // De-dupe by URL
+  const seen = new Set<string>()
+  const allRoutes = [...staticRoutes, ...staticInsightRoutes, ...dbInsightRoutes]
+    .filter((r) => { if (seen.has(r.url)) return false; seen.add(r.url); return true })
+
+  return allRoutes
 }

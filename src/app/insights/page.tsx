@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { getAllInsights, getFeaturedInsight } from '@/lib/insights'
+import { getAllInsights } from '@/lib/insights'
+import { getPublishedPosts } from '@/lib/db/posts'
+import type { InsightPost } from '@/lib/types'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Insights',
@@ -11,15 +15,35 @@ export const metadata: Metadata = {
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+    year: 'numeric', month: 'long', day: 'numeric',
   })
 }
 
-export default function InsightsPage() {
-  const featured = getFeaturedInsight()
-  const all = getAllInsights()
+export default async function InsightsPage() {
+  const staticPosts = getAllInsights()
+
+  let dbPosts: InsightPost[] = []
+  try {
+    const raw = await getPublishedPosts()
+    dbPosts = raw.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      date: p.published_at,
+      category: p.category,
+      readTime: p.read_time,
+      excerpt: p.excerpt,
+      content: p.content,
+      featured: p.featured,
+    }))
+  } catch { /* Supabase not yet configured — show static posts only */ }
+
+  // Merge, de-dupe by slug, sort by date
+  const seen = new Set<string>()
+  const all: InsightPost[] = [...dbPosts, ...staticPosts]
+    .filter((p) => { if (seen.has(p.slug)) return false; seen.add(p.slug); return true })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+  const featured = all.find((p) => p.featured)
   const rest = all.filter((p) => !p.featured)
 
   return (
@@ -32,10 +56,8 @@ export default function InsightsPage() {
           <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4">
             Perspectives
           </p>
-          <h1
-            className="font-display font-semibold text-navy leading-tight mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
-          >
+          <h1 className="font-display font-semibold text-navy leading-tight mb-4"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
             Insights
           </h1>
           <p className="font-sans text-lg text-navy/60 max-w-xl leading-relaxed">
@@ -48,16 +70,14 @@ export default function InsightsPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-          {/* ── Featured post ──────────────────────────────── */}
+          {/* Featured */}
           {featured && (
             <div className="mb-16">
               <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-6">
                 Featured
               </p>
-              <Link
-                href={`/insights/${featured.slug}`}
-                className="group block bg-navy rounded-sm overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
+              <Link href={`/insights/${featured.slug}`}
+                className="group block bg-navy rounded-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   <div className="p-10 md:p-14">
                     <span className="inline-block font-sans text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-6 px-3 py-1.5 bg-gold/10 rounded-sm">
@@ -76,7 +96,6 @@ export default function InsightsPage() {
                       </span>
                     </div>
                   </div>
-                  {/* Decorative right panel */}
                   <div className="hidden lg:flex items-center justify-center bg-navy-dark p-14">
                     <div className="text-center">
                       <div className="w-px h-20 bg-gold/30 mx-auto mb-8" />
@@ -91,7 +110,7 @@ export default function InsightsPage() {
             </div>
           )}
 
-          {/* ── Post grid ──────────────────────────────────── */}
+          {/* All posts grid */}
           {rest.length > 0 && (
             <div>
               <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-8">
@@ -99,11 +118,8 @@ export default function InsightsPage() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {rest.map((post) => (
-                  <Link
-                    key={post.slug}
-                    href={`/insights/${post.slug}`}
-                    className="group flex flex-col border border-cream-deeper hover:border-navy/20 hover:shadow-md rounded-sm overflow-hidden transition-all duration-300"
-                  >
+                  <Link key={post.slug} href={`/insights/${post.slug}`}
+                    className="group flex flex-col border border-cream-deeper hover:border-navy/20 hover:shadow-md rounded-sm overflow-hidden transition-all duration-300">
                     <div className="h-1 bg-navy/10 group-hover:bg-gold transition-colors duration-300" />
                     <div className="p-8 flex flex-col flex-1">
                       <div className="flex items-center gap-3 mb-5">
@@ -132,16 +148,11 @@ export default function InsightsPage() {
             </div>
           )}
 
-          {/* Submission note */}
           <div className="mt-20 pt-10 border-t border-cream-deeper">
             <p className="font-sans text-sm text-navy/40 text-center">
               Follow Burton on{' '}
-              <a
-                href="https://linkedin.com/in/burtoncrapps"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-navy/60 hover:text-navy underline transition-colors"
-              >
+              <a href="https://linkedin.com/in/burtoncrapps" target="_blank" rel="noopener noreferrer"
+                className="text-navy/60 hover:text-navy underline transition-colors">
                 LinkedIn
               </a>{' '}
               for the latest perspectives and updates.
