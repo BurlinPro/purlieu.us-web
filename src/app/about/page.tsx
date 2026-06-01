@@ -5,9 +5,9 @@ import { ArrowRight } from 'lucide-react'
 import { LinkedInIcon } from '@/components/ui/BrandIcons'
 
 export const metadata: Metadata = {
-  title: 'About Burton Crapps Sr.',
+  title: 'About',
   description:
-    '25+ years building and scaling businesses across the United States and ASEAN. Founder of Purlieu Management with deep cross-border execution experience.',
+    'Purlieu Management is a principal-led consulting firm specializing in cross-border market entry, business development, and capital raising across ASEAN and the United States.',
 }
 
 const career = [
@@ -42,7 +42,7 @@ const career = [
     location: 'Philippines',
     points: [
       'Led Philippines market entry from inception; grew to Top 15 global FICO market by 2014',
-      'Delivered multi-million USD revenue growth and enterprise banking adoption across the country',
+      'Delivered multi-million USD revenue growth and enterprise banking adoption',
       'Achieved FICO Circle of Excellence recognition multiple years',
       'Spearheaded development of localized credit scoring for underserved market segments',
     ],
@@ -87,91 +87,97 @@ export default function AboutPage() {
   return (
     <div className="pt-20">
 
-      {/* ── Page hero ──────────────────────────────────────── */}
+      {/* ── Page header — no photo here ────────────────────── */}
       <section className="bg-cream topo-bg py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <span className="gold-rule" />
           <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4">
-            The Principal
+            The Firm
           </p>
           <h1
-            className="font-display font-semibold text-navy leading-tight mb-4"
+            className="font-display font-semibold text-navy leading-tight mb-5"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
           >
-            Burton W. Crapps Sr.
+            About Purlieu
           </h1>
-          <p className="font-sans text-lg text-navy/60 max-w-xl">
-            Entrepreneur, market builder, and cross-border operator with 25+ years of
-            execution across Asia-Pacific and the United States.
+          <p className="font-sans text-lg text-navy/60 max-w-2xl leading-relaxed">
+            Purlieu Management is a principal-led advisory firm focused on cross-border
+            market entry, business development, and capital raising. Every engagement is
+            managed directly — not delegated to a team of analysts.
           </p>
         </div>
       </section>
 
-      {/* ── Bio + photo ────────────────────────────────────── */}
+      {/* ── Principal bio + photo ──────────────────────────── */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
-            {/* Sticky photo col */}
+            {/* Sticky photo — reasonably sized, not dominant */}
             <div className="lg:col-span-2">
               <div className="sticky top-28">
-                <div className="relative max-w-sm mx-auto lg:mx-0">
-                  <div className="absolute -bottom-4 -right-4 w-full h-full bg-cream-dark rounded-sm -z-10" />
+                <div className="relative max-w-xs mx-auto lg:mx-0">
+                  <div className="absolute -bottom-3 -right-3 w-full h-full bg-cream-dark rounded-sm -z-10" />
                   <Image
                     src="/images/burt-crapps.jpg"
-                    alt="Burton W. Crapps Sr., Founder of Purlieu Management"
-                    width={420}
-                    height={500}
-                    className="object-cover object-top w-full rounded-sm shadow-lg"
-                    style={{ aspectRatio: '420/500' }}
+                    alt="Founder, Purlieu Management"
+                    width={320}
+                    height={380}
+                    className="object-cover object-top w-full rounded-sm shadow-md"
+                    style={{ aspectRatio: '320/380' }}
                   />
                 </div>
 
-                <div className="mt-8 max-w-sm mx-auto lg:mx-0">
+                <div className="mt-6 max-w-xs mx-auto lg:mx-0">
+                  <p className="font-display font-semibold text-navy text-lg">
+                    Burton W. Crapps Sr.
+                  </p>
+                  <p className="font-sans text-sm text-navy/50 mt-0.5">
+                    Founder &amp; Principal
+                  </p>
                   <a
                     href="https://linkedin.com/in/burtoncrapps"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-5 py-3.5 border border-navy/20 rounded-sm hover:border-navy hover:bg-navy/5 transition-all group"
+                    className="mt-4 flex items-center gap-2.5 px-4 py-3 border border-navy/20 rounded-sm hover:border-navy hover:bg-navy/5 transition-all group w-full"
                   >
-                    <LinkedInIcon size={18} className="text-navy" />
-                    <span className="font-sans text-sm font-medium text-navy">
-                      Connect on LinkedIn
-                    </span>
-                    <ArrowRight size={13} className="ml-auto text-navy/40 group-hover:text-navy group-hover:translate-x-0.5 transition-all" />
+                    <LinkedInIcon size={15} className="text-navy" />
+                    <span className="font-sans text-sm font-medium text-navy">LinkedIn</span>
+                    <ArrowRight size={12} className="ml-auto text-navy/30 group-hover:text-navy group-hover:translate-x-0.5 transition-all" />
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Bio copy col */}
+            {/* Bio copy */}
             <div className="lg:col-span-3 space-y-5">
               <p className="font-sans text-base text-navy/70 leading-relaxed">
-                Senior executive, entrepreneur, and market builder with more than 25 years of
-                leadership across Asia-Pacific and the United States. Burt specializes in
-                market entry, revenue acceleration, capital raising, and cross-border
-                execution — particularly in emerging and frontier markets.
+                Purlieu Management was founded on a straightforward premise: the
+                difference between a company that successfully enters a new market and one
+                that doesn&apos;t is rarely the quality of the product or the size of the
+                opportunity. It is almost always execution — and execution requires
+                experience in the specific market, relationships that took years to build,
+                and the judgment that comes from having made costly mistakes somewhere else.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
-                He has founded and scaled multiple ventures across fintech, infrastructure
-                technology, and enterprise software. His track record includes leading the
-                Philippines market expansion for FICO (growing it into a Top 15 global market),
-                pioneering credit scoring for unbanked populations, and building
-                CollectionWorks — a receivables management platform that expanded to 26
-                countries before being acquired by Temenos.
+                The firm&apos;s founder brings more than 25 years of direct operating
+                experience across Asia-Pacific and the United States. He has founded and
+                scaled multiple ventures across fintech, infrastructure, and enterprise
+                software — including leading the Philippines market expansion for FICO
+                (growing it to a Top 15 global market), building CollectionWorks into
+                a 26-country platform before its acquisition by Temenos, and pioneering
+                credit scoring infrastructure for unbanked populations in Southeast Asia.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
-                Today he is scaling RoadPacker International across four ASEAN nations —
-                delivering infrastructure solutions in markets where the systems to support
-                them are still being built.
+                Today the firm also supports RoadPacker International&apos;s expansion across
+                four ASEAN nations — working in markets where the infrastructure required
+                to operate is still being built, which has always been Purlieu&apos;s territory.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
-                Every engagement through Purlieu Management is managed personally. The network,
-                the execution experience, and the relationships are not delegated — they are
-                the offering.
+                Engagements are managed directly and personally. The network, the market
+                knowledge, and the execution accountability are not outsourced.
               </p>
 
-              {/* Education */}
               <div className="pt-4 border-t border-cream-deeper">
                 <p className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-3">
                   Education
@@ -185,7 +191,6 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -219,19 +224,15 @@ export default function AboutPage() {
             className="font-display font-semibold text-navy leading-tight mb-14"
             style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
           >
-            Career History
+            Track Record
           </h2>
 
           <div className="relative">
-            {/* Timeline spine */}
             <div className="absolute left-0 top-0 bottom-0 w-px bg-cream-deeper hidden md:block" />
-
             <div className="space-y-14">
               {career.map((item, i) => (
                 <div key={i} className="relative md:pl-10">
-                  {/* Dot */}
                   <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-gold hidden md:block" />
-
                   <div className="flex flex-col md:flex-row md:items-start gap-2 md:gap-6 mb-4">
                     <span className="font-sans text-xs font-semibold tracking-wide text-gold uppercase whitespace-nowrap md:w-32 flex-shrink-0">
                       {item.period}
@@ -245,7 +246,6 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-
                   <ul className="md:ml-[8.5rem] space-y-2">
                     {item.points.map((pt, j) => (
                       <li key={j} className="flex items-start gap-2.5">
@@ -265,10 +265,10 @@ export default function AboutPage() {
       <section className="bg-navy py-20">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="font-display font-semibold text-white text-4xl mb-5">
-            Work with Burton Directly
+            Work With the Firm Directly
           </h2>
           <p className="font-sans text-base text-white/60 mb-8">
-            Every Purlieu engagement is managed personally. Start the conversation.
+            Every engagement is managed personally. Start the conversation.
           </p>
           <Link
             href="/contact"
@@ -279,7 +279,6 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
-
     </div>
   )
 }

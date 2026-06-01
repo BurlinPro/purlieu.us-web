@@ -12,8 +12,7 @@ const services = [
   {
     icon: Globe,
     title: 'Market Entry & Expansion',
-    summary:
-      'End-to-end strategic entry into ASEAN, U.S., and Middle East markets — from feasibility studies through full on-the-ground execution and partnership development.',
+    problem: 'You have a product that works. The market you want is real. What you lack is the operational infrastructure, local relationships, and regulatory pathway to enter it without burning two years and significant capital learning lessons someone else already paid for.',
     proof: 'Took FICO Philippines from zero to Top 15 global market in under 4 years.',
     outcomes: [
       'Market feasibility & risk assessment',
@@ -25,8 +24,7 @@ const services = [
   {
     icon: TrendingUp,
     title: 'Business Development & Revenue Growth',
-    summary:
-      'Building high-impact partnership networks, sales channels, and revenue acceleration programs for growth-stage companies entering new territories.',
+    problem: 'Revenue in a new market does not follow the same playbook as your home market. The channels are different, the relationships that open doors are different, and the timeline to trust is longer than your board expects.',
     proof: 'CollectionWorks scaled from Atlanta to 26 countries before acquisition by Temenos.',
     outcomes: [
       'Strategic partnership development',
@@ -38,8 +36,7 @@ const services = [
   {
     icon: DollarSign,
     title: 'Capital Raising & Investor Relations',
-    summary:
-      'Structuring investment opportunities, preparing for capital raises, and managing investor relationships for expansion and growth rounds.',
+    problem: 'The investors who fund cross-border and emerging market expansion are in a specific network. Getting in front of the right capital — structured correctly, at the right stage — requires knowing which doors to knock on and what to say when they open.',
     proof: '$6M+ raised across ventures in ASEAN and the United States.',
     outcomes: [
       'Investment deck & materials',
@@ -51,8 +48,7 @@ const services = [
   {
     icon: Rocket,
     title: 'Startup Formation & Scaling',
-    summary:
-      'Hands-on support for early-stage companies — from concept validation to building operational foundations in emerging and frontier markets.',
+    problem: 'Building a company in a market that does not yet have the infrastructure to support it is a different challenge than scaling in an established one. The rules are still being written — by whoever gets there first.',
     proof: '6 companies founded across fintech, infrastructure, and enterprise software.',
     outcomes: [
       'Business model validation',
@@ -64,9 +60,8 @@ const services = [
   {
     icon: Building2,
     title: 'Cross-Border Operations',
-    summary:
-      'Navigating complex regulatory environments, building compliant legal and operational structures, and establishing sustainable presence across borders.',
-    proof: 'Operational presence built and running across Philippines, Indonesia, Vietnam, Thailand, and the U.S.',
+    problem: 'Operating across borders means navigating regulatory environments, legal structures, banking relationships, and local expectations that vary significantly by country — and that change. Getting this wrong is expensive.',
+    proof: 'Operational presence built across Philippines, Indonesia, Vietnam, Thailand, and the U.S.',
     outcomes: [
       'Entity formation & compliance',
       'Operational infrastructure',
@@ -77,8 +72,7 @@ const services = [
   {
     icon: Layers,
     title: 'Infrastructure & Emerging Markets',
-    summary:
-      'Identifying and executing infrastructure and high-potential opportunities in markets where systems and frameworks are still developing.',
+    problem: 'Some of the most significant opportunities in ASEAN are in markets where the infrastructure required to support a business is still being built. Identifying which gaps represent viable opportunities — and which represent traps — requires having operated in these environments.',
     proof: '300+ infrastructure project implementations delivered across 4 ASEAN nations.',
     outcomes: [
       'Opportunity identification',
@@ -107,9 +101,69 @@ export default function ServicesPage() {
             Services
           </h1>
           <p className="font-sans text-lg text-navy/60 max-w-xl leading-relaxed">
-            Advisory grounded in real execution. Every engagement is personally led
-            with hands-on involvement — not handed off.
+            Every engagement is grounded in direct operating experience — not frameworks
+            developed in a conference room. We have been in these markets, built in
+            these conditions, and navigated these obstacles firsthand.
           </p>
+        </div>
+      </section>
+
+      {/* ── Abstract geographic break ──────────────────────── */}
+      <section className="relative bg-navy py-16 overflow-hidden">
+
+        {/* Topographic layer */}
+        <div className="absolute inset-0 topo-bg opacity-25 pointer-events-none" />
+
+        {/* Abstract city-grid lines — Singapore-inspired */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg className="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+            {/* Horizontal grid lines */}
+            {[40,80,120,160,200,240].map(y => (
+              <line key={y} x1="0" y1={y} x2="1200" y2={y} stroke="#B8935A" strokeWidth="0.5" />
+            ))}
+            {/* Vertical grid lines */}
+            {Array.from({length: 25}, (_, i) => (i + 1) * 48).map(x => (
+              <line key={x} x1={x} y1="0" x2={x} y2="300" stroke="#B8935A" strokeWidth="0.5" />
+            ))}
+            {/* Building silhouettes */}
+            <rect x="60"  y="80"  width="30" height="120" fill="#B8935A" opacity="0.15" />
+            <rect x="100" y="40"  width="20" height="160" fill="#B8935A" opacity="0.2"  />
+            <rect x="130" y="60"  width="35" height="140" fill="#B8935A" opacity="0.12" />
+            <rect x="175" y="20"  width="25" height="180" fill="#B8935A" opacity="0.25" />
+            <rect x="210" y="55"  width="40" height="145" fill="#B8935A" opacity="0.15" />
+            <rect x="260" y="70"  width="22" height="130" fill="#B8935A" opacity="0.18" />
+            <rect x="850" y="50"  width="28" height="150" fill="#B8935A" opacity="0.2"  />
+            <rect x="890" y="30"  width="20" height="170" fill="#B8935A" opacity="0.25" />
+            <rect x="920" y="65"  width="35" height="135" fill="#B8935A" opacity="0.15" />
+            <rect x="965" y="45"  width="25" height="155" fill="#B8935A" opacity="0.2"  />
+            <rect x="1000"y="75"  width="30" height="125" fill="#B8935A" opacity="0.12" />
+            <rect x="1040"y="35"  width="22" height="165" fill="#B8935A" opacity="0.22" />
+            {/* Connecting lines — trade routes */}
+            <line x1="200" y1="150" x2="900" y2="150" stroke="#B8935A" strokeWidth="1" strokeDasharray="6 4" opacity="0.4" />
+            <line x1="300" y1="100" x2="850" y2="180" stroke="#B8935A" strokeWidth="0.5" strokeDasharray="4 6" opacity="0.25" />
+            {/* Dots at key nodes */}
+            <circle cx="200" cy="150" r="4" fill="#B8935A" opacity="0.6" />
+            <circle cx="600" cy="150" r="3" fill="#B8935A" opacity="0.4" />
+            <circle cx="900" cy="150" r="4" fill="#B8935A" opacity="0.6" />
+          </svg>
+        </div>
+
+        {/* Gold left accent */}
+        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gold/40" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+            {[
+              { region: 'United States', desc: 'Cross-industry expansion. Capital markets. Operational entry into sectors that require relationship capital and sector knowledge to unlock.' },
+              { region: 'ASEAN', desc: 'Philippines · Indonesia · Vietnam · Thailand · Singapore. Deep operator experience across the region\'s fastest-growing markets.' },
+              { region: 'Cross-Border', desc: 'U.S. companies entering ASEAN. ASEAN operators establishing U.S. presence. The full corridor, in both directions.' },
+            ].map(({ region, desc }) => (
+              <div key={region} className="border-l border-gold/30 pl-6">
+                <p className="font-display font-semibold text-white text-2xl mb-3">{region}</p>
+                <p className="font-sans text-sm text-white/55 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -117,39 +171,33 @@ export default function ServicesPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map(({ icon: Icon, title, summary, proof, outcomes }, i) => (
+            {services.map(({ icon: Icon, title, problem, proof, outcomes }, i) => (
               <div
                 key={i}
                 className="flex flex-col bg-white border border-cream-deeper hover:border-navy/20 hover:shadow-md rounded-sm overflow-hidden transition-all duration-300 group"
               >
-                {/* Card header */}
                 <div className="p-8 flex-1">
                   <div className="w-10 h-10 bg-navy/5 rounded-sm flex items-center justify-center mb-5 group-hover:bg-navy transition-all duration-300">
                     <Icon size={18} className="text-navy group-hover:text-white transition-colors" />
                   </div>
-                  <h2 className="font-display font-semibold text-navy text-2xl leading-tight mb-3">
+                  <h2 className="font-display font-semibold text-navy text-2xl leading-tight mb-4">
                     {title}
                   </h2>
                   <p className="font-sans text-sm text-navy/60 leading-relaxed mb-6">
-                    {summary}
+                    {problem}
                   </p>
-
-                  {/* Outcomes */}
                   <ul className="space-y-2">
                     {outcomes.map((pt, j) => (
                       <li key={j} className="flex items-start gap-2.5">
                         <span className="mt-2 block w-1 h-1 rounded-full bg-gold/60 flex-shrink-0" />
-                        <span className="font-sans text-sm text-navy/60 leading-snug">{pt}</span>
+                        <span className="font-sans text-sm text-navy/55 leading-snug">{pt}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                {/* Proof anchor — gold bar at bottom */}
-                <div className="px-8 py-4 bg-navy/3 border-t-2 border-gold/40 group-hover:border-gold transition-colors">
-                  <p className="font-sans text-xs font-semibold text-gold leading-snug">
-                    {proof}
-                  </p>
+                {/* Proof anchor */}
+                <div className="px-8 py-4 border-t-2 border-gold/30 group-hover:border-gold bg-cream/40 transition-colors">
+                  <p className="font-sans text-xs font-semibold text-gold leading-snug">{proof}</p>
                 </div>
               </div>
             ))}
@@ -171,20 +219,21 @@ export default function ServicesPage() {
               </h2>
               <p className="font-sans text-base text-navy/70 leading-relaxed mb-4">
                 Most consulting firms deliver a framework and step back. Purlieu&apos;s
-                role is different: structuring the opportunity, guiding execution, building
-                the partnerships, and staying in it through capital and operational milestones.
+                role is different — structuring the opportunity, guiding execution,
+                building the partnerships, and staying engaged through capital and
+                operational milestones.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
-                Every engagement is managed directly by Burton Crapps — bringing three
-                decades of operator experience, not analysis, to the table.
+                Every engagement is managed directly by the firm&apos;s founder —
+                bringing three decades of operator experience, not analysis, to the table.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { step: '01', label: 'Assess', desc: 'Honest evaluation of the opportunity, obstacles, and what execution actually requires.' },
-                { step: '02', label: 'Structure', desc: 'Define entity, capital, partnerships, and regulatory pathway in the right sequence.' },
-                { step: '03', label: 'Execute', desc: 'Hands-on. Direct. Burton operates across every engagement personally.' },
-                { step: '04', label: 'Scale', desc: 'Build the foundation that supports growth — not just the initial entry.' },
+                { step: '01', label: 'Assess', desc: 'Honest evaluation of the opportunity, the obstacles, and what execution actually requires.' },
+                { step: '02', label: 'Structure', desc: 'Define the entity, capital, partnerships, and regulatory pathway in the right sequence.' },
+                { step: '03', label: 'Execute', desc: 'Hands-on and direct. The founder operates across every engagement personally.' },
+                { step: '04', label: 'Scale', desc: 'Build the foundation that supports growth — not just the initial entry point.' },
               ].map(({ step, label, desc }) => (
                 <div key={step} className="bg-white p-5 rounded-sm border border-cream-deeper relative overflow-hidden">
                   <span className="absolute top-2 right-3 font-display font-bold text-4xl text-navy/5 select-none leading-none">{step}</span>

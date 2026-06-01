@@ -1,109 +1,84 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* Topographic texture — left panel */}
-      <div className="absolute inset-0 topo-bg pointer-events-none" />
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/hero-visual.jpg')" }}
+      />
 
-      {/* Cream base */}
-      <div className="absolute inset-0 bg-cream/80" />
+      {/* Navy overlay — heavy enough for legibility, light enough to see the image */}
+      <div className="absolute inset-0 bg-navy/78" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[calc(100vh-5rem)] items-center">
+      {/* Subtle topo texture over overlay */}
+      <div className="absolute inset-0 topo-bg opacity-20 pointer-events-none" />
 
-          {/* ── Left: copy ─────────────────────────────────── */}
-          <div className="lg:col-span-7 py-16 lg:py-0 lg:pr-16">
+      {/* Gold left-edge accent */}
+      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gold/50 hidden lg:block" />
 
-            {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-8 animate-fade-in">
-              <span className="block w-8 h-px bg-gold" />
-              <span className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold">
-                Purlieu Management
-              </span>
-            </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-24">
+        <div className="max-w-3xl">
 
-            {/* Headline */}
-            <h1 className="font-display font-semibold leading-[0.95] text-navy mb-8 animate-fade-up"
-              style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-10">
+            <span className="block w-8 h-px bg-gold" />
+            <span className="font-sans text-xs font-semibold tracking-[0.22em] uppercase text-gold">
+              Purlieu Management
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1
+            className="font-display font-semibold text-white leading-[0.95] mb-8"
+            style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)' }}
+          >
+            The Markets That
+            <br />
+            <em className="not-italic text-white/75">Matter Most</em>
+            <br />
+            Are the Hardest
+            <br />
+            to Enter.
+          </h1>
+
+          {/* Gold rule */}
+          <div className="w-14 h-0.5 bg-gold mb-8" />
+
+          {/* Sub-copy — problem-first, speaks directly to US C-suite */}
+          <p className="font-sans text-base md:text-lg text-white/70 leading-relaxed max-w-xl mb-4">
+            Expanding into ASEAN — or moving into a cross-industry market on U.S. soil —
+            is not a research problem. It is an execution problem. Most companies arrive
+            with the right intent and the wrong infrastructure.
+          </p>
+          <p className="font-sans text-base md:text-lg text-white/70 leading-relaxed max-w-xl mb-12">
+            Purlieu provides the operator experience, regional relationships, and
+            on-the-ground execution that close the gap between strategy and result.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-navy font-sans text-sm font-semibold tracking-wide rounded-sm hover:bg-cream transition-all duration-200 group"
             >
-              Beyond
-              <br />
-              <em className="not-italic text-navy/80">Established</em>
-              <br />
-              Markets.
-            </h1>
-
-            {/* Divider */}
-            <div className="w-14 h-0.5 bg-gold mb-8 animate-fade-in animate-delay-200" />
-
-            {/* Sub-copy */}
-            <p className="font-sans text-base md:text-lg text-navy/70 leading-relaxed max-w-lg mb-4 animate-fade-up animate-delay-200">
-              Built for U.S. companies entering ASEAN, ASEAN operators expanding into the
-              United States, and founders building in markets where the infrastructure is
-              still forming.
-            </p>
-            <p className="font-sans text-base md:text-lg text-navy/70 leading-relaxed max-w-lg mb-12 animate-fade-up animate-delay-300">
-              Thirty years of doing exactly that. Real execution. No delegation.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-up animate-delay-400">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-navy text-white font-sans text-sm font-medium tracking-wide rounded-sm hover:bg-navy-mid transition-all duration-200 group"
-              >
-                Start a Conversation
-                <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-navy/30 text-navy font-sans text-sm font-medium tracking-wide rounded-sm hover:border-navy hover:bg-navy/5 transition-all duration-200"
-              >
-                About Burton Crapps
-              </Link>
-            </div>
+              Explore Our Services
+              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/30 text-white font-sans text-sm font-semibold tracking-wide rounded-sm hover:border-white/70 hover:bg-white/5 transition-all duration-200"
+            >
+              Start a Conversation
+            </Link>
           </div>
-
-          {/* ── Right: headshot ────────────────────────────── */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end animate-fade-in animate-delay-300">
-
-            {/* Decorative navy block behind image */}
-            <div className="absolute bottom-0 right-0 w-4/5 h-5/6 bg-navy rounded-sm -z-0 hidden lg:block" />
-
-            {/* Gold accent line */}
-            <div className="absolute top-8 right-4 w-0.5 h-32 bg-gold hidden lg:block" />
-
-            <div className="relative z-10 w-72 md:w-80 lg:w-full max-w-sm">
-              <Image
-                src="/images/burt-crapps.jpg"
-                alt="Burton W. Crapps Sr., Founder of Purlieu Management"
-                width={480}
-                height={560}
-                priority
-                className="object-cover object-top w-full rounded-sm shadow-2xl"
-                style={{ aspectRatio: '480/560' }}
-              />
-
-              {/* Caption card */}
-              <div className="absolute bottom-6 left-0 -translate-x-4 lg:-translate-x-8 bg-white px-5 py-4 shadow-lg border-l-2 border-gold max-w-[220px]">
-                <p className="font-display font-semibold text-navy text-base leading-tight">
-                  Burton W. Crapps Sr.
-                </p>
-                <p className="font-sans text-xs text-navy/60 mt-1 tracking-wide">
-                  Founder &amp; Principal
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
-      {/* Bottom fade */}
+      {/* Bottom fade to white */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
     </section>
   )

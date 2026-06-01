@@ -35,7 +35,7 @@ export function FounderProof() {
             someone who has already operated in that market.&rdquo;
           </blockquote>
           <cite className="not-italic font-sans text-sm text-navy/50 tracking-wide">
-            — Burton W. Crapps Sr., Founder &amp; Principal
+            — The Founder
           </cite>
           <div className="w-px h-12 bg-gold/40 mx-auto mt-8" />
         </div>
