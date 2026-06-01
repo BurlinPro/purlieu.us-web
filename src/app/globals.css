@@ -1,26 +1,74 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ── Font variables ─────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-cormorant: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-outfit: 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ── Base ──────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-white text-navy font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Utilities ─────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
+
+  .opacity-0-init {
+    opacity: 0;
+  }
+}
+
+/* ── Components ────────────────────────────────────────────── */
+@layer components {
+  /* Topographic line texture used in Hero */
+  .topo-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cg fill='none' stroke='%230B2545' stroke-opacity='0.06' stroke-width='1'%3E%3Cellipse cx='300' cy='300' rx='260' ry='200'/%3E%3Cellipse cx='300' cy='300' rx='220' ry='165'/%3E%3Cellipse cx='300' cy='300' rx='180' ry='130'/%3E%3Cellipse cx='300' cy='300' rx='140' ry='95'/%3E%3Cellipse cx='300' cy='300' rx='100' ry='60'/%3E%3Cellipse cx='300' cy='300' rx='60' ry='30'/%3E%3Cellipse cx='150' cy='180' rx='120' ry='80'/%3E%3Cellipse cx='450' cy='420' rx='110' ry='70'/%3E%3Cellipse cx='80' cy='450' rx='80' ry='50'/%3E%3Cellipse cx='520' cy='150' rx='90' ry='55'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 600px 600px;
+    background-repeat: repeat;
+  }
+
+  /* Prose styles for Insights content */
+  .insight-prose h3 {
+    @apply font-display text-2xl text-navy font-semibold mt-8 mb-3;
+  }
+
+  .insight-prose p {
+    @apply font-sans text-base leading-relaxed text-slate-700 mb-5;
+  }
+
+  .insight-prose strong {
+    @apply text-navy font-semibold;
+  }
+
+  .insight-prose ul {
+    @apply list-disc list-inside space-y-2 mb-5 text-slate-700;
+  }
+
+  /* Gold divider accent */
+  .gold-rule {
+    @apply block w-12 h-0.5 bg-gold mb-6;
+  }
 }

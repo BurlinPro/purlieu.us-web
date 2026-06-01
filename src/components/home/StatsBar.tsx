@@ -1,0 +1,32 @@
+const stats = [
+  { value: '30+', label: 'Years of Execution' },
+  { value: '6', label: 'Companies Founded' },
+  { value: '26', label: 'Countries Served' },
+  { value: '$6M+', label: 'Capital Raised' },
+  { value: '300+', label: 'Projects Delivered' },
+]
+
+export function StatsBar() {
+  return (
+    <section className="bg-navy py-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-4">
+          {stats.map(({ value, label }, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center text-center gap-1.5 group"
+            >
+              <span className="font-display text-3xl md:text-4xl font-semibold text-white leading-none">
+                {value}
+              </span>
+              <span className="block w-6 h-px bg-gold mx-auto" />
+              <span className="font-sans text-xs font-medium tracking-[0.12em] uppercase text-white/50">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
