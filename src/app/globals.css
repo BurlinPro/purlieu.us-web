@@ -1,6 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* ── Theme Customization ───────────────────────────────────── */
+@theme {
+  --color-navy: #0B2545;
+  --color-navy-mid: #1A3F6F;
+  --color-navy-light: #2E5FA3;
+  --color-navy-dark: #071830;
+  --color-navy-50: #EEF4FF;
+
+  --color-gold: #B8935A;
+  --color-gold-light: #D4B483;
+  --color-gold-dark: #9A7A47;
+
+  --color-cream: #F8F6F1;
+  --color-cream-dark: #EDE8DF;
+  --color-cream-deeper: #E0D9CC;
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-outfit);
+}
 
 /* ── Font variables ─────────────────────────────────────────── */
 :root {

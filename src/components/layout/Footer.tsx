@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Linkedin, Mail } from 'lucide-react'
+import { Mail, Users } from 'lucide-react'   // or ExternalLink, Share2, etc.
 import { PurlieuLogo } from '@/components/ui/PurlieuLogo'
 
 const footerLinks = [
@@ -67,7 +67,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 font-sans text-sm text-white/70 hover:text-white transition-colors"
                 >
-                  <Linkedin size={14} className="text-gold flex-shrink-0" />
+                  <Users size={14} className="text-gold flex-shrink-0" />
                   linkedin.com/in/burtoncrapps
                 </a>
               </li>
