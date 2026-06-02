@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Mail, Phone } from 'lucide-react'
 import { LinkedInIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
-import { ContactForm } from '@/components/contact/ContactForm'
+import ContactForm from '@/components/contact/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
