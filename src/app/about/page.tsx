@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { LinkedInIcon } from '@/components/ui/BrandIcons'
+import { LinkedInIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -145,6 +145,35 @@ export default function AboutPage() {
                     <span className="font-sans text-sm font-medium text-navy">LinkedIn</span>
                     <ArrowRight size={12} className="ml-auto text-navy/30 group-hover:text-navy group-hover:translate-x-0.5 transition-all" />
                   </a>
+
+                  {/* Phone numbers */}
+                  <div className="mt-4 space-y-2">
+                    <a
+                      href="tel:+14702318832"
+                      className="flex items-center gap-2.5 px-4 py-2.5 border border-navy/20 rounded-sm hover:border-navy hover:bg-navy/5 transition-all group w-full"
+                    >
+                      <span className="text-sm">🇺🇸</span>
+                      <span className="font-sans text-sm font-medium text-navy">+1.470.231.8832</span>
+                    </a>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="tel:+639175508849"
+                        className="flex-1 flex items-center gap-2.5 px-4 py-2.5 border border-navy/20 rounded-sm hover:border-navy hover:bg-navy/5 transition-all group"
+                      >
+                        <span className="text-sm">🇵🇭</span>
+                        <span className="font-sans text-sm font-medium text-navy">+63.917.550.8849</span>
+                      </a>
+                      <a
+                        href="https://wa.me/639175508849"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp"
+                        className="flex items-center justify-center w-10 h-10 bg-[#25D366]/10 text-[#25D366] rounded-sm hover:bg-[#25D366]/20 transition-colors flex-shrink-0"
+                      >
+                        <WhatsAppIcon size={16} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

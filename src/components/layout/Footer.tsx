@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import { LinkedInIcon } from '@/components/ui/BrandIcons'
 import { PurlieuLogo } from '@/components/ui/PurlieuLogo'
 
@@ -54,6 +54,13 @@ export function Footer() {
             <span className="font-sans text-xs text-white/40 hidden lg:block">
               Metro Manila, Philippines
             </span>
+            <a
+              href="tel:+14702318832"
+              className="flex items-center gap-1.5 font-sans text-xs text-white/50 hover:text-white transition-colors"
+            >
+              <Phone size={12} className="text-gold" />
+              +1.470.231.8832
+            </a>
             <a
               href="mailto:info@purlieu.us"
               className="flex items-center gap-1.5 font-sans text-xs text-white/50 hover:text-white transition-colors"

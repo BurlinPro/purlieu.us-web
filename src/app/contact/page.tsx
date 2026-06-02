@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { Mail } from 'lucide-react'
-import { LinkedInIcon } from '@/components/ui/BrandIcons'
-import ContactForm from '@/components/contact/ContactForm'
+import { Mail, Phone } from 'lucide-react'
+import { LinkedInIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
+import { ContactForm } from '@/components/contact/ContactForm'
+
 export const metadata: Metadata = {
   title: 'Contact',
   description:
@@ -65,13 +66,69 @@ export default function ContactPage() {
               </div>
 
               {/* Direct contact */}
-              <div className="border-t border-cream-deeper pt-8 space-y-5">
+              <div className="border-t border-cream-deeper pt-8 space-y-4">
                 <p className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-gold">
                   Direct Contact
                 </p>
+                <p className="font-sans text-xs text-navy/40 leading-relaxed">
+                  Reach us directly — we operate across time zones.
+                </p>
+
+                {/* Phone numbers */}
+                <div className="space-y-3">
+                  {/* US */}
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-cream-deeper">
+                    <div className="flex items-center gap-3">
+                      <span className="font-sans text-xs font-semibold text-navy/40 w-6">🇺🇸</span>
+                      <div>
+                        <p className="font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide leading-none mb-0.5">United States</p>
+                        <a href="tel:+14702318832" className="font-sans text-sm font-medium text-navy hover:text-navy-mid transition-colors">
+                          +1.470.231.8832
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SG */}
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-cream-deeper">
+                    <div className="flex items-center gap-3">
+                      <span className="font-sans text-xs font-semibold text-navy/40 w-6">🇸🇬</span>
+                      <div>
+                        <p className="font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide leading-none mb-0.5">Singapore</p>
+                        <a href="tel:+6531631336" className="font-sans text-sm font-medium text-navy hover:text-navy-mid transition-colors">
+                          +65.3163.1336
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* PH + WhatsApp */}
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-cream-deeper">
+                    <div className="flex items-center gap-3">
+                      <span className="font-sans text-xs font-semibold text-navy/40 w-6">🇵🇭</span>
+                      <div>
+                        <p className="font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide leading-none mb-0.5">Philippines</p>
+                        <a href="tel:+639175508849" className="font-sans text-sm font-medium text-navy hover:text-navy-mid transition-colors">
+                          +63.917.550.8849
+                        </a>
+                      </div>
+                    </div>
+                    <a
+                      href="https://wa.me/639175508849"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#25D366]/10 text-[#25D366] rounded-sm font-sans text-xs font-semibold hover:bg-[#25D366]/20 transition-colors flex-shrink-0"
+                    >
+                      <WhatsAppIcon size={12} />
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
+
+                {/* Email + LinkedIn */}
                 <a
                   href="mailto:info@purlieu.us"
-                  className="flex items-center gap-3 font-sans text-sm text-navy/70 hover:text-navy transition-colors group"
+                  className="flex items-center gap-3 font-sans text-sm text-navy/70 hover:text-navy transition-colors group pt-1"
                 >
                   <span className="w-8 h-8 rounded-sm bg-navy/5 flex items-center justify-center group-hover:bg-navy group-hover:text-white transition-all">
                     <Mail size={14} />
