@@ -48,6 +48,20 @@ export function Footer() {
             <p className="font-display text-xs italic text-white/30 hidden sm:block">
               Beyond Established Markets
             </p>
+            <span className="text-white/20 hidden md:inline">·</span>
+            <a
+              href="https://burlinpro.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 font-sans text-xs text-white/40 opacity-80 hover:opacity-100 hover:text-white/60 transition-all"
+            >
+              Built &amp; managed by
+              <img
+                src="/burlinpro-logo.svg"
+                alt="BurlinPro"
+                className="h-[18px] w-auto"
+              />
+            </a>
           </div>
 
           <div className="flex items-center gap-5">
