@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
 export default function ContactForm() {
@@ -10,8 +10,18 @@ export default function ContactForm() {
     company: '',
     message: '',
   })
+  // Honeypot: hidden from real users. Bots fill every field; a non-empty
+  // value here flags the submission as automated. ("company" is a real field,
+  // so the trap uses an unrelated name.)
+  const [website, setWebsite] = useState('')
+  // Time-trap: when the form became interactive. Bots submit near-instantly.
+  const loadedAt = useRef<number>(0)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+
+  useEffect(() => {
+    loadedAt.current = Date.now()
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -25,12 +35,17 @@ export default function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          website,
+          elapsedMs: loadedAt.current ? Date.now() - loadedAt.current : 0,
+        }),
       })
 
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', company: '', message: '' })
+        setWebsite('')
       } else {
         throw new Error('Failed to send message')
       }
@@ -54,6 +69,26 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-8">
+      {/*
+        Honeypot. Positioned off-screen (not display:none) so bots that skip
+        hidden inputs still fill it; hidden from assistive tech and keyboard.
+      */}
+      <div
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+      >
+        <label htmlFor="website">Website (leave this field empty)</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block font-sans text-sm font-medium text-navy mb-2">

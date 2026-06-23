@@ -1,11 +1,37 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
+// Escape user input before interpolating into the email HTML, preventing
+// markup/HTML injection in the message we receive.
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const MIN_SUBMIT_MS = 3000 // humans take longer than 3s to fill the form
+const MAX_LEN = { name: 100, email: 200, company: 150, message: 5000 }
+const MAX_LINKS = 2 // legitimate inquiries rarely paste multiple URLs
+
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   try {
     const body = await request.json()
-    const { name, email, company, message } = body
+    const { name, email, company, message, website, elapsedMs } = body
+
+    // Honeypot tripped — silently accept so the bot sees success and moves on.
+    if (typeof website === 'string' && website.trim() !== '') {
+      return NextResponse.json({ success: true })
+    }
+
+    // Submitted faster than a human plausibly could.
+    if (typeof elapsedMs === 'number' && elapsedMs < MIN_SUBMIT_MS) {
+      return NextResponse.json({ success: true })
+    }
 
     // Basic server-side validation
     if (!name || !email || !message) {
@@ -15,16 +41,46 @@ export async function POST(request: Request) {
       )
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
+    if (
+      typeof name !== 'string' ||
+      typeof email !== 'string' ||
+      typeof message !== 'string' ||
+      (company != null && typeof company !== 'string')
+    ) {
+      return NextResponse.json({ error: 'Invalid input.' }, { status: 400 })
+    }
+
+    if (
+      name.length > MAX_LEN.name ||
+      email.length > MAX_LEN.email ||
+      message.length > MAX_LEN.message ||
+      (company && company.length > MAX_LEN.company)
+    ) {
+      return NextResponse.json({ error: 'Invalid input.' }, { status: 400 })
+    }
+
+    if (!EMAIL_RE.test(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 })
     }
+
+    // Most form-spam injects multiple links. Drop submissions that look like it.
+    if ((message.match(/https?:\/\//gi) || []).length > MAX_LINKS) {
+      return NextResponse.json({ success: true })
+    }
+
+    // Plain-text subject: strip line breaks to avoid header injection.
+    const subjectName = name.replace(/[\r\n]+/g, ' ').trim().slice(0, 100)
+    const subjectCompany = company ? company.replace(/[\r\n]+/g, ' ').trim().slice(0, 150) : ''
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeCompany = company ? escapeHtml(company) : ''
+    const safeMessage = escapeHtml(message).replace(/\n/g, '<br />')
 
     const { data, error } = await resend.emails.send({
       from: 'Purlieu Management <noreply@purlieu.us>',
       to: ['burt@purlieu.us'],
       replyTo: email,
-      subject: `New Inquiry — ${name}${company ? ` · ${company}` : ''}`,
+      subject: `New Inquiry — ${subjectName}${subjectCompany ? ` · ${subjectCompany}` : ''}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -56,27 +112,27 @@ export async function POST(request: Request) {
               <div class="body">
                 <div class="field">
                   <div class="label">Name</div>
-                  <div class="value">${name}</div>
+                  <div class="value">${safeName}</div>
                 </div>
-                ${company ? `
+                ${safeCompany ? `
                 <div class="field">
                   <div class="label">Company</div>
-                  <div class="value">${company}</div>
+                  <div class="value">${safeCompany}</div>
                 </div>
                 ` : ''}
                 <div class="field">
                   <div class="label">Email</div>
-                  <div class="value"><a href="mailto:${email}" style="color:#1A3F6F;">${email}</a></div>
+                  <div class="value"><a href="mailto:${safeEmail}" style="color:#1A3F6F;">${safeEmail}</a></div>
                 </div>
                 <div class="field">
                   <div class="label">Message</div>
                   <div class="message-box">
-                    <div class="value">${message.replace(/\n/g, '<br />')}</div>
+                    <div class="value">${safeMessage}</div>
                   </div>
                 </div>
               </div>
               <div class="footer">
-                Submitted via purlieu.us · Reply directly to this email to respond to ${name}
+                Submitted via purlieu.us · Reply directly to this email to respond to ${safeName}
               </div>
             </div>
           </body>
