@@ -20,6 +20,27 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Contact Form Anti-Spam (added June 2026)
+
+The contact form (`src/components/contact/ContactForm.tsx` →
+`src/app/api/contact/route.ts`, Resend → `burt@purlieu.us`) uses the standard
+BurlinPro anti-spam stack:
+
+- **Honeypot** — off-screen `website` field (the visible `company` field is
+  real, so the trap uses a different name); a non-empty value ⇒ bot. Tripped
+  submissions return silent success, no email sent.
+- **Time-trap** — client sends `elapsedMs` (time since form mount); submissions
+  under 3s are silently dropped.
+- **Validation** — required name/email, valid email format, length caps
+  (name 100 / email 200 / company 150 / message 5000), and messages with >2
+  links are dropped.
+- **HTML escaping** — all user values are HTML-entity-escaped (`escapeHtml`)
+  before interpolation into the email; subject is plain-text sanitized. Closed a
+  pre-existing HTML-injection hole.
+
+Not yet added (escalation levers if spam persists): IP rate-limiting, Cloudflare
+Turnstile.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
