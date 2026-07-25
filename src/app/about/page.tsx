@@ -3,11 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { LinkedInIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { personSchema } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'About',
   description:
     'Purlieu Management is a principal-led consulting firm specializing in cross-border market entry, business development, and capital raising across ASEAN and the United States.',
+  alternates: { canonical: '/about' },
 }
 
 const career = [
@@ -86,6 +89,7 @@ const expertise = [
 export default function AboutPage() {
   return (
     <div className="pt-20">
+      <JsonLd data={personSchema} />
 
       {/* ── Page header — no photo here ────────────────────── */}
       <section className="bg-cream topo-bg py-20">

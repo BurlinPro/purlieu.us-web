@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Services',
   description:
     'Market entry, business development, capital raising, and cross-border execution services across ASEAN and the United States.',
+  alternates: { canonical: '/services' },
 }
 
 const services = [

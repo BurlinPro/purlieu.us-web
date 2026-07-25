@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Start a conversation with Purlieu Management. All inquiries are handled personally by Burton Crapps, Sr.',
+  alternates: { canonical: '/contact' },
 }
 
 const engagements = [

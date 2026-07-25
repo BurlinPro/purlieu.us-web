@@ -6,6 +6,8 @@ import { getAllInsights, getInsightBySlug } from '@/lib/insights'
 import { getPublishedPosts, getPostBySlug } from '@/lib/db/posts'
 import type { InsightPost } from '@/lib/types'
 import { ShareButtons } from '@/components/insights/ShareButtons'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { articleSchema, OG_IMAGE, SITE_NAME, FOUNDER_NAME } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -35,12 +37,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/insights/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
+      url: `/insights/${slug}`,
+      siteName: SITE_NAME,
+      locale: 'en_US',
       publishedTime: post.date,
-      authors: ['Burton W. Crapps Sr.'],
+      modifiedTime: post.date,
+      section: post.category,
+      authors: [FOUNDER_NAME],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: post.title }],
     },
   }
 }
@@ -78,6 +87,7 @@ export default async function InsightPost({ params }: Props) {
 
   return (
     <div className="pt-20">
+      <JsonLd data={articleSchema(post)} />
 
       {/* ── Header ─────────────────────────────────────────── */}
       <section className="bg-cream topo-bg py-16 md:py-20">

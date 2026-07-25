@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Insights',
   description:
     'Perspectives on emerging markets, cross-border expansion, financial inclusion, and business development from Burton Crapps of Purlieu Management.',
+  alternates: { canonical: '/insights' },
 }
 
 function formatDate(iso: string) {
