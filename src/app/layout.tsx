@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: 'Purlieu Management',
     title: 'Purlieu Management | Cross-Border Business Development & Market Expansion',
     description:
-      'Strategic market entry, cross-border expansion, and capital raising advisory — grounded in 30+ years of execution across ASEAN and the United States.',
+      'Strategic market entry, cross-border expansion, and capital raising advisory, grounded in 30+ years of execution across ASEAN and the United States.',
     images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Purlieu Management' }],
   },
   twitter: {

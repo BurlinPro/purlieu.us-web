@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { AdminLoginForm } from './AdminLoginForm'
 
-export const metadata = { title: 'Admin — Purlieu Management', robots: 'noindex,nofollow' }
+export const metadata = { title: 'Admin · Purlieu Management', robots: 'noindex,nofollow' }
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies()

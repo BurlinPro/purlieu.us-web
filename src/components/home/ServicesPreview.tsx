@@ -6,7 +6,7 @@ const services = [
     icon: Globe,
     title: 'Market Entry & Expansion',
     description:
-      'Strategic entry into ASEAN, U.S., and Middle East markets — from feasibility through on-the-ground execution.',
+      'Strategic entry into ASEAN, U.S., and Middle East markets: feasibility through on-the-ground execution.',
   },
   {
     icon: TrendingUp,
@@ -24,7 +24,7 @@ const services = [
     icon: Rocket,
     title: 'Startup Formation & Scaling',
     description:
-      'From concept validation to operational foundation — building companies in emerging and underserved markets.',
+      'From concept validation to operational foundation, building companies in emerging and underserved markets.',
   },
   {
     icon: Building2,
@@ -62,7 +62,7 @@ export function ServicesPreview() {
           <p className="font-sans text-base text-navy/70 leading-relaxed">
             Purlieu's role is not advisory alone. Every engagement involves
             structuring opportunities, guiding execution, forming partnerships, and
-            supporting capital alignment — hands-on, from start to result.
+            supporting capital alignment, hands-on from start to result.
           </p>
         </div>
 

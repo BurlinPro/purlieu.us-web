@@ -50,7 +50,7 @@ export function Hero() {
 
           {/* Sub-copy — problem-first, speaks directly to US C-suite */}
           <p className="font-sans text-base md:text-lg text-white/70 leading-relaxed max-w-xl mb-4">
-            Expanding into ASEAN — or moving into a cross-industry market on U.S. soil —
+            Expanding into ASEAN, or moving into a cross-industry market on U.S. soil,
             is not a research problem. It is an execution problem. Most companies arrive
             with the right intent and the wrong infrastructure.
           </p>

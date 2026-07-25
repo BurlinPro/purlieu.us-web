@@ -80,7 +80,7 @@ export async function POST(request: Request) {
       from: 'Purlieu Management <noreply@purlieu.us>',
       to: ['burt@purlieu.us'],
       replyTo: email,
-      subject: `New Inquiry — ${subjectName}${subjectCompany ? ` · ${subjectCompany}` : ''}`,
+      subject: `New Inquiry: ${subjectName}${subjectCompany ? ` · ${subjectCompany}` : ''}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -107,7 +107,7 @@ export async function POST(request: Request) {
               <div class="header">
                 <span class="accent"></span>
                 <p class="header-title">New Website Inquiry</p>
-                <p class="header-sub">Purlieu Management — purlieu.us</p>
+                <p class="header-sub">Purlieu Management · purlieu.us</p>
               </div>
               <div class="body">
                 <div class="field">

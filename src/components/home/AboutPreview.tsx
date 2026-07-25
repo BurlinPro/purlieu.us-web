@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 const highlights = [
   'Led FICO Philippines to a Top 15 global market ranking',
-  'Founded CollectionWorks — expanded to 26 countries and successfully exited',
+  'Founded CollectionWorks, scaled it to 26 countries, and exited successfully',
   'Raised capital for pioneering fintech initiatives in Southeast Asia',
   'Currently scaling infrastructure solutions across ASEAN',
   'U.S. Army veteran with proven leadership in complex environments',
@@ -45,8 +45,8 @@ export function AboutPreview() {
                 </p>
                 
                 <p className="font-sans text-base text-navy/70 leading-relaxed mb-10">
-                  Every engagement receives personal leadership. We don’t delegate strategy 
-                  or execution — we work directly with you from market analysis through 
+                  Every engagement receives personal leadership. We don’t delegate strategy
+                  or execution. We work directly with you, from market analysis through
                   on-the-ground implementation.
                 </p>
               </div>

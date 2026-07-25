@@ -142,7 +142,7 @@ export function NewPostForm() {
 
           {/* Excerpt */}
           <div>
-            <label className="field-label">Excerpt * <span className="text-navy/30 font-normal normal-case">— shown on cards and in SEO</span></label>
+            <label className="field-label">Excerpt * <span className="text-navy/30 font-normal normal-case">(shown on cards and in SEO)</span></label>
             <textarea
               required rows={3} value={form.excerpt}
               onChange={(e) => set('excerpt', e.target.value)}
@@ -155,7 +155,7 @@ export function NewPostForm() {
           {/* Content */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="field-label mb-0">Content * <span className="text-navy/30 font-normal normal-case">— simple markdown supported</span></label>
+              <label className="field-label mb-0">Content * <span className="text-navy/30 font-normal normal-case">(simple markdown supported)</span></label>
               <button
                 type="button"
                 onClick={() => setPreview((v) => !v)}

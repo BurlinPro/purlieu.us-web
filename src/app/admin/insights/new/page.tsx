@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { NewPostForm } from './NewPostForm'
 
-export const metadata = { title: 'New Post — Purlieu Admin' }
+export const metadata = { title: 'New Post · Purlieu Admin' }
 
 export default function NewPostPage() {
   return (

@@ -8,7 +8,7 @@ const proofCards = [
   {
     stat: '26',
     context: 'Countries',
-    detail: 'Built CollectionWorks (CWX) from Atlanta into a global enterprise platform — acquired by Temenos.',
+    detail: 'Built CollectionWorks (CWX) from Atlanta into a global enterprise platform, later acquired by Temenos.',
     tag: 'CollectionWorks → Temenos',
   },
   {
@@ -31,11 +31,11 @@ export function FounderProof() {
             className="font-display font-medium italic text-navy leading-tight mb-6"
             style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)' }}
           >
-            &ldquo;The risk isn&apos;t in entering early. It&apos;s in arriving late — without
+            &ldquo;The risk isn&apos;t in entering early. It&apos;s in arriving late, without
             someone who has already operated in that market.&rdquo;
           </blockquote>
           <cite className="not-italic font-sans text-sm text-navy/50 tracking-wide">
-            — The Founder
+            Burton W. Crapps Sr., Founder
           </cite>
           <div className="w-px h-12 bg-gold/40 mx-auto mt-8" />
         </div>

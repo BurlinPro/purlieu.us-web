@@ -71,7 +71,7 @@ export default function ContactPage() {
                   Direct Contact
                 </p>
                 <p className="font-sans text-xs text-navy/40 leading-relaxed">
-                  Reach us directly — we operate across time zones.
+                  Reach us directly. We operate across time zones.
                 </p>
 
                 {/* Phone numbers */}
@@ -151,8 +151,8 @@ export default function ContactPage() {
               {/* Quote */}
               <blockquote className="border-l-2 border-gold pl-5">
                 <p className="font-display text-lg italic text-navy/70 leading-snug">
-                  &ldquo;We work with founders, institutions, and partners who are operating —
-                  or seeking to operate — beyond established markets.&rdquo;
+                  &ldquo;We work with founders, institutions, and partners who are operating,
+                  or seeking to operate, beyond established markets.&rdquo;
                 </p>
               </blockquote>
             </div>

@@ -36,7 +36,7 @@ const services = [
   {
     icon: DollarSign,
     title: 'Capital Raising & Investor Relations',
-    problem: 'The investors who fund cross-border and emerging market expansion are in a specific network. Getting in front of the right capital — structured correctly, at the right stage — requires knowing which doors to knock on and what to say when they open.',
+    problem: 'The investors who fund cross-border and emerging market expansion are in a specific network. Getting in front of the right capital, structured correctly and at the right stage, requires knowing which doors to knock on and what to say when they open.',
     proof: '$6M+ raised across ventures in ASEAN and the United States.',
     outcomes: [
       'Investment deck & materials',
@@ -48,7 +48,7 @@ const services = [
   {
     icon: Rocket,
     title: 'Startup Formation & Scaling',
-    problem: 'Building a company in a market that does not yet have the infrastructure to support it is a different challenge than scaling in an established one. The rules are still being written — by whoever gets there first.',
+    problem: 'Building a company in a market that does not yet have the infrastructure to support it is a different challenge than scaling in an established one. The rules are still being written, by whoever gets there first.',
     proof: '6 companies founded across fintech, infrastructure, and enterprise software.',
     outcomes: [
       'Business model validation',
@@ -60,7 +60,7 @@ const services = [
   {
     icon: Building2,
     title: 'Cross-Border Operations',
-    problem: 'Operating across borders means navigating regulatory environments, legal structures, banking relationships, and local expectations that vary significantly by country — and that change. Getting this wrong is expensive.',
+    problem: 'Operating across borders means navigating regulatory environments, legal structures, banking relationships, and local expectations that vary significantly by country, and that change. Getting this wrong is expensive.',
     proof: 'Operational presence built across Philippines, Indonesia, Vietnam, Thailand, and the U.S.',
     outcomes: [
       'Entity formation & compliance',
@@ -72,7 +72,7 @@ const services = [
   {
     icon: Layers,
     title: 'Infrastructure & Emerging Markets',
-    problem: 'Some of the most significant opportunities in ASEAN are in markets where the infrastructure required to support a business is still being built. Identifying which gaps represent viable opportunities — and which represent traps — requires having operated in these environments.',
+    problem: 'Some of the most significant opportunities in ASEAN are in markets where the infrastructure required to support a business is still being built. Identifying which gaps represent viable opportunities, and which represent traps, requires having operated in these environments.',
     proof: '300+ infrastructure project implementations delivered across 4 ASEAN nations.',
     outcomes: [
       'Opportunity identification',
@@ -101,7 +101,7 @@ export default function ServicesPage() {
             Services
           </h1>
           <p className="font-sans text-lg text-navy/60 max-w-xl leading-relaxed">
-            Every engagement is grounded in direct operating experience — not frameworks
+            Every engagement is grounded in direct operating experience, not frameworks
             developed in a conference room. We have been in these markets, built in
             these conditions, and navigated these obstacles firsthand.
           </p>
@@ -219,13 +219,13 @@ export default function ServicesPage() {
               </h2>
               <p className="font-sans text-base text-navy/70 leading-relaxed mb-4">
                 Most consulting firms deliver a framework and step back. Purlieu&apos;s
-                role is different — structuring the opportunity, guiding execution,
+                role is different: structuring the opportunity, guiding execution,
                 building the partnerships, and staying engaged through capital and
                 operational milestones.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
-                Every engagement is managed directly by the firm&apos;s founder —
-                bringing three decades of operator experience, not analysis, to the table.
+                Every engagement is managed directly by the firm&apos;s founder, who
+                brings three decades of operator experience, not analysis.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -233,7 +233,7 @@ export default function ServicesPage() {
                 { step: '01', label: 'Assess', desc: 'Honest evaluation of the opportunity, the obstacles, and what execution actually requires.' },
                 { step: '02', label: 'Structure', desc: 'Define the entity, capital, partnerships, and regulatory pathway in the right sequence.' },
                 { step: '03', label: 'Execute', desc: 'Hands-on and direct. The founder operates across every engagement personally.' },
-                { step: '04', label: 'Scale', desc: 'Build the foundation that supports growth — not just the initial entry point.' },
+                { step: '04', label: 'Scale', desc: 'Build the foundation that supports growth, not just the initial entry point.' },
               ].map(({ step, label, desc }) => (
                 <div key={step} className="bg-white p-5 rounded-sm border border-cream-deeper relative overflow-hidden">
                   <span className="absolute top-2 right-3 font-display font-bold text-4xl text-navy/5 select-none leading-none">{step}</span>

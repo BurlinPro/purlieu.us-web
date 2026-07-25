@@ -103,7 +103,7 @@ export default function AboutPage() {
           <p className="font-sans text-lg text-navy/60 max-w-2xl leading-relaxed">
             Purlieu Management is a principal-led advisory firm focused on cross-border
             market entry, business development, and capital raising. Every engagement is
-            managed directly — not delegated to a team of analysts.
+            managed directly, not delegated to a team of analysts.
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function AboutPage() {
                 Purlieu Management was founded on a straightforward premise: the
                 difference between a company that successfully enters a new market and one
                 that doesn&apos;t is rarely the quality of the product or the size of the
-                opportunity. It is almost always execution — and execution requires
+                opportunity. It is almost always execution, and execution requires
                 experience in the specific market, relationships that took years to build,
                 and the judgment that comes from having made costly mistakes somewhere else.
               </p>
@@ -192,15 +192,15 @@ export default function AboutPage() {
                 The firm&apos;s founder brings more than 25 years of direct operating
                 experience across Asia-Pacific and the United States. He has founded and
                 scaled multiple ventures across fintech, infrastructure, and enterprise
-                software — including leading the Philippines market expansion for FICO
+                software, including leading the Philippines market expansion for FICO
                 (growing it to a Top 15 global market), building CollectionWorks into
                 a 26-country platform before its acquisition by Temenos, and pioneering
                 credit scoring infrastructure for unbanked populations in Southeast Asia.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
                 Today the firm also supports RoadPacker International&apos;s expansion across
-                four ASEAN nations — working in markets where the infrastructure required
-                to operate is still being built, which has always been Purlieu&apos;s territory.
+                four ASEAN nations, working in markets where the infrastructure required
+                to operate is still being built. That has always been Purlieu&apos;s territory.
               </p>
               <p className="font-sans text-base text-navy/70 leading-relaxed">
                 Engagements are managed directly and personally. The network, the market
@@ -213,7 +213,7 @@ export default function AboutPage() {
                 </p>
                 <p className="font-sans text-sm text-navy/70">
                   <strong className="text-navy font-semibold">
-                    BA — Behavioral Psychology &amp; Theology, Summa Cum Laude
+                    BA in Behavioral Psychology &amp; Theology, Summa Cum Laude
                   </strong>
                   <br />
                   Brewton-Parker College, Georgia, USA
@@ -271,7 +271,7 @@ export default function AboutPage() {
                         {item.role}
                       </h3>
                       <p className="font-sans text-sm font-medium text-navy/60 mt-0.5">
-                        {item.company} — {item.location}
+                        {item.company} · {item.location}
                       </p>
                     </div>
                   </div>

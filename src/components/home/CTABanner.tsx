@@ -14,7 +14,7 @@ export function CTABanner() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
 
         <span className="inline-block font-display text-sm italic text-gold mb-6">
-          &ldquo;Purlieu&rdquo; — the place beyond established boundaries.
+          &ldquo;Purlieu&rdquo;: the place beyond established boundaries.
         </span>
 
         <h2
@@ -28,7 +28,7 @@ export function CTABanner() {
 
         <p className="font-sans text-base text-white/60 leading-relaxed max-w-xl mx-auto mb-10">
           Whether you&apos;re entering a new market, raising growth capital, or building
-          in territory without a map — let&apos;s start a conversation.
+          in territory without a map, let&apos;s talk.
         </p>
 
         <Link

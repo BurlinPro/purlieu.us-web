@@ -54,7 +54,7 @@ export function PurlieuLogo({
   )
 
   return href ? (
-    <Link href={href} aria-label="Purlieu Management — home">
+    <Link href={href} aria-label="Purlieu Management, home">
       {logo}
     </Link>
   ) : (
