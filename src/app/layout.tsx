@@ -3,8 +3,11 @@ import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { organizationSchema, websiteSchema } from '@/lib/seo'
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://purlieu.us'),
@@ -67,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
+        {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   )
