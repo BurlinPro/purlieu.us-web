@@ -41,6 +41,15 @@ BurlinPro anti-spam stack:
 Not yet added (escalation levers if spam persists): IP rate-limiting, Cloudflare
 Turnstile.
 
+## Analytics (added 2026-08-08)
+
+Google Analytics 4 wired up per the vault's GA4 protocol — none existed before. `src/app/layout.tsx`
+renders `@next/third-parties/google`'s `<GoogleAnalytics gaId={...} />`, reading
+`NEXT_PUBLIC_GA_MEASUREMENT_ID` (never hardcoded). Documented in `.env.example` (new file — the
+repo's `.gitignore` blanket-ignored `.env*`, so a `!.env.example` exception was added too). Measurement
+ID `G-PS99MQTJMF`, set in Vercel → Production only. Confirmed live via `gtag.js?id=G-PS99MQTJMF` in
+the served HTML. `@vercel/analytics` also runs alongside GA4, unrelated/separate.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
