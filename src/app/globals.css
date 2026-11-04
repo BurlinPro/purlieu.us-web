@@ -90,7 +90,10 @@
     @apply text-navy font-semibold;
   }
   .insight-prose ul {
-    @apply list-disc list-inside space-y-2 mb-5 text-slate-700;
+    @apply list-disc pl-5 space-y-2 mb-5 font-sans text-base leading-relaxed text-slate-700;
+  }
+  .insight-prose ol {
+    @apply list-decimal pl-5 space-y-2 mb-5 font-sans text-base leading-relaxed text-slate-700;
   }
 
   /* Gold accent rule */

@@ -2,6 +2,118 @@ import { InsightPost } from './types'
 
 export const insights: InsightPost[] = [
   {
+    slug: 'relationships-market-entry-philippines',
+    title: 'Nobody Buys From a Stranger: Why Relationships Are the Real Market-Entry Strategy in the Philippines',
+    date: '2026-11-04',
+    category: 'Market Entry',
+    readTime: '6 min read',
+    featured: false,
+    excerpt:
+      'Most companies planning a Philippine launch start with entities, licenses and pricing. The ones that win start with who will take the first meeting.',
+    content: `
+      <p>Foreign companies planning a Philippine launch usually start with the same checklist: entity setup, licensing, pricing, a local hire or two. All necessary. None of it opens a door.</p>
+      <p>The doors open through people. In a market where a single bank decision can involve risk, compliance, technology and a family-run board, trust is the thing that gets your proposal read in the first place.</p>
+      <h3>Why Cold Outreach Stalls</h3>
+      <p>Enterprise sales cycles here commonly run six to eighteen months. A cold email to a senior banker competes with hundreds of others, and most go unanswered. That isn't rudeness. Decision-makers are protecting their time, and a name they don't know carries no weight.</p>
+      <h3>What Actually Works</h3>
+      <p><strong>A warm introduction from someone the buyer already trusts.</strong> One credible referral does more than fifty cold messages.</p>
+      <p><strong>Showing you've done your homework.</strong> Open with the institution's own public priorities, not your product. Generic decks get filed. Specific ones get a reply.</p>
+      <p><strong>Staying visible between meetings.</strong> Long cycles reward the people who keep showing up with something useful: a regulatory update, a peer comparison, a relevant introduction.</p>
+      <p><strong>Being straight about conflicts.</strong> If you work with other vendors in the same space, say so early. Buyers respect it, and they usually find out anyway.</p>
+      <h3>The Trap to Avoid</h3>
+      <p>Relationships are not a substitute for substance. They get you the meeting; the work has to earn the second one. I've seen strong introductions wasted on weak preparation.</p>
+      <h3>What It Means for Your Budget</h3>
+      <p>If you're planning a first-year entry, assume the first six months are relationship-building, not revenue. Structure your costs and your expectations around that, and use partners who already hold the access instead of trying to build it from zero.</p>
+      <p><em>I have made introductions for international companies which have built long-term recurring contract revenue with major financial institutions in multiple countries. I have relationships with decision-makers that get the deals done.</em></p>
+      <p><em>Who in your target market would vouch for you today?</em></p>
+    `,
+  },
+  {
+    slug: 'afasa-fraud-balance-sheet-philippine-banks',
+    title: 'Fraud Is Now a Balance-Sheet Problem: What AFASA Changed for Philippine Banks',
+    date: '2026-11-04',
+    category: 'Risk & Compliance',
+    readTime: '7 min read',
+    featured: false,
+    excerpt:
+      'Fraud used to sit in the operations budget. Since AFASA, it sits on the balance sheet, right next to credit costs.',
+    content: `
+      <p>For years, fraud sat in the operations budget. A cost of doing business, handled by a small team, reported as a loss line. That framing is out of date.</p>
+      <p>The one-year transition under BSP Circular 1213 ended on 30 June 2026. Under the Anti-Financial Account Scamming Act (RA 12010), a bank that fails to meet its fraud-management and authentication duties can be ordered to reimburse customers. Fraud now shows up as a liability, and it lands in the same place as credit costs.</p>
+      <h3>The Scale of the Problem</h3>
+      <p>Survey data from the Global Anti-Scam Alliance puts scam losses to Filipinos at roughly ₱122 billion in 2026, with 84% of adults having come across a scam. Separately, an industry white paper estimates mule-linked fraud exposure at ₱603 billion a year. Be careful with that second number. It's a modeled estimate, not confirmed losses, and it shouldn't be added to the survey figure. They measure different things.</p>
+      <h3>Why This Matters to a Bank's CFO</h3>
+      <ul>
+        <li>Reimbursement liability is not automatic. It depends on the facts and on whether a control failure caused the loss. That makes documented controls, audit trails and response times matter far more than they did.</li>
+        <li>BSP has also added account-inquiry rules (Circular 1214) and temporary holds of up to 30 days (Circular 1215), which raise the operational bar further.</li>
+        <li>Credit is under pressure at the same time. Gross NPLs hit ₱596.3 billion in August (up 8.4% from a year earlier, ratio 3.35%), and Fitch has the sector outlook at "deteriorating". Capital looks adequate. The squeeze is in provisions and coverage.</li>
+      </ul>
+      <h3>Where Banks Tend to Be Exposed</h3>
+      <p>Most of the real weak points are the unglamorous ones: mule account detection, onboarding checks, and the gap between what a customer says happened and what the logs can prove.</p>
+      <h3>What to Do First</h3>
+      <p>Map your fraud controls to the AFASA requirements line by line. Find the gaps before a complaint finds them for you. Then decide which gaps you close with people, which with tools, and which with partners.</p>
+      <p><em>Does your board see fraud as an operating cost or a liability? Do you have KYC or core applications that can help companies prevent fraud and save on the bottom line?</em></p>
+      <p><em>Sources: Manila Times, Manila Bulletin and BSP data as compiled in Purlieu's 27 October 2026 segment update.</em></p>
+    `,
+  },
+  {
+    slug: 'asean-fdi-boom-philippines',
+    title: "Record Capital, Uneven Landing: What ASEAN's FDI Boom Means for Companies Targeting the Philippines",
+    date: '2026-11-04',
+    category: 'Emerging Markets',
+    readTime: '6 min read',
+    featured: false,
+    excerpt:
+      'Record foreign investment is flowing into ASEAN. The harder question is whether it lands where you plan to build.',
+    content: `
+      <p>ASEAN pulled in a record US$243.9 billion in foreign direct investment in 2025, up 9.7% from the year before, according to UNCTAD's World Investment Report 2026. On the surface, that's a strong signal for anyone planning a regional play.</p>
+      <p>Look underneath and the picture is less even.</p>
+      <h3>The Money Is Concentrating</h3>
+      <p>ASEAN's own investment body notes that growth in fast-moving sectors is increasingly concentrated among a small number of major economies. Singapore, Malaysia, Vietnam, Indonesia and Thailand take the bulk of it, much of it tied to electronics, data infrastructure and AI-related build-out. Vietnam alone drew about US$38 billion in 2025.</p>
+      <p>The Philippines has not captured the same share. One recent Oxford Economics analysis found it lagging its neighbors in attracting Chinese outbound investment.</p>
+      <h3>Why a Rising Tide Doesn't Lift Every Market</h3>
+      <p>Capital flows to places that are ready to receive it: reliable power, clear permitting, trained people, predictable regulation. The Philippines has real strengths, including a young workforce, a deep services base and a fast-growing digital finance sector. But the "ready to receive" test is exactly where invisible infrastructure matters.</p>
+      <h3>What This Means for a Company Deciding Where to Go</h3>
+      <p><strong>Don't treat ASEAN as one market.</strong> Each country has its own timeline, regulator and partner landscape.</p>
+      <p><strong>Look for the sectors where the Philippines is ahead.</strong> Digital finance, business services and remittance-linked products stand out.</p>
+      <p><strong>Expect more scrutiny.</strong> UNCTAD flags growing emphasis on national security and supply-chain resilience, which can mean closer review of foreign investors.</p>
+      <p><strong>Use local partners to read the gaps.</strong> They'll tell you what's missing before you've spent the money.</p>
+      <p>The headline number is encouraging. The detail is where the strategy gets decided.</p>
+      <p><em>Which ASEAN market is your company actually ready for?</em></p>
+      <p><em>Sources: ASEAN Investment Report via UNCTAD WIR 2026; Manila Bulletin (Oxford Economics), 31 March 2026.</em></p>
+    `,
+  },
+  {
+    slug: 'open-finance-open-data-philippine-lenders',
+    title: "Open Finance Won't Work Without Open Data: The Groundwork Philippine Lenders Still Need",
+    date: '2026-11-04',
+    category: 'Financial Inclusion',
+    readTime: '7 min read',
+    featured: false,
+    excerpt:
+      "Open finance lets data move. It can't create data that was never captured.",
+    content: `
+      <p>The Philippines now tracks roughly 370 fintech companies, and the proposed Open Finance Act is moving through the conversation. Open finance promises customer-consented data sharing between banks, fintechs and lenders. In theory, it widens access to credit for people who've never had a formal record.</p>
+      <p>In practice, it depends on something less exciting than the law itself: usable, trusted data.</p>
+      <h3>Sharing Nothing Is Still Nothing</h3>
+      <p>Open finance lets data move. It can't create data that was never captured. If a farmer's income, a seafarer's family remittances or a small shop's daily sales aren't recorded somewhere in a consistent form, there's nothing to share.</p>
+      <p>This is the same lesson from the earlier credit work in the Philippines: the barrier was never willingness to repay. It was visibility.</p>
+      <h3>Four Things Lenders Need in Place</h3>
+      <ol>
+        <li><strong>A reliable identity layer.</strong> PhilSys and eKYC are helping, but adoption and verification quality vary by institution.</li>
+        <li><strong>Alternative data sources that are consented and consistent.</strong> Utility payments, mobile usage, cooperative records and e-wallet activity only help if they're collected the same way each time.</li>
+        <li><strong>Models that fit local reality.</strong> Global scoring tools need adjusting for informal income and irregular cash flow.</li>
+        <li><strong>Controls against misuse.</strong> More open data means more fraud surface. Mule detection and consent management have to scale with it.</li>
+      </ol>
+      <h3>The Timing</h3>
+      <p>Banks are under pressure on provisions and fraud at the same moment they're being asked to open up. That's uncomfortable, but also an opening for partners who can fill specific gaps, such as data exchange, analytics or identity checks, without a multi-year internal build.</p>
+      <h3>What to Watch</h3>
+      <p>The legislation will get the headlines. The institutions that benefit will be the ones that quietly fixed their data first.</p>
+      <p><em>If open finance launched tomorrow, what data would your institution actually have to share?</em></p>
+      <p><em>Sources: Fintech News Philippines, Philippines Fintech Report 2026 summary; BSP data via Manila Bulletin.</em></p>
+    `,
+  },
+  {
   slug: 'start-over-strong',
   title: 'Start Over Strong: 5 Shifts That Turn Disruption Into Your Next Big Move',
   date: '2026-05-30',
