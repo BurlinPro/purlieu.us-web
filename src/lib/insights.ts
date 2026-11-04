@@ -4,7 +4,7 @@ export const insights: InsightPost[] = [
   {
     slug: 'relationships-market-entry-philippines',
     title: 'Nobody Buys From a Stranger: Why Relationships Are the Real Market-Entry Strategy in the Philippines',
-    date: '2026-11-04',
+    date: '2026-11-01',
     category: 'Market Entry',
     readTime: '6 min read',
     featured: false,
@@ -31,7 +31,7 @@ export const insights: InsightPost[] = [
   {
     slug: 'afasa-fraud-balance-sheet-philippine-banks',
     title: 'Fraud Is Now a Balance-Sheet Problem: What AFASA Changed for Philippine Banks',
-    date: '2026-11-04',
+    date: '2026-11-02',
     category: 'Risk & Compliance',
     readTime: '7 min read',
     featured: false,
