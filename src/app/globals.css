@@ -19,7 +19,7 @@
   --color-cream-dark:   #EDE8DF;
   --color-cream-deeper: #E0D9CC;
 
-  /* Fonts — variables set by Google Fonts <link> in layout.tsx */
+  /* Fonts: variables set by Google Fonts <link> in layout.tsx */
   --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-sans:    'Outfit', system-ui, -apple-system, sans-serif;
 

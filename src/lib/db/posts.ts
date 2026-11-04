@@ -28,7 +28,7 @@ function getPublicClient() {
   )
 }
 
-/** Server-side only — never expose SUPABASE_SERVICE_ROLE_KEY to the client */
+/** Server-side only: never expose SUPABASE_SERVICE_ROLE_KEY to the client */
 function getAdminClient() {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

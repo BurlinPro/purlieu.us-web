@@ -26,15 +26,15 @@ The contact form (`src/components/contact/ContactForm.tsx` →
 `src/app/api/contact/route.ts`, Resend → `burt@purlieu.us`) uses the standard
 BurlinPro anti-spam stack:
 
-- **Honeypot** — off-screen `website` field (the visible `company` field is
+- **Honeypot**: off-screen `website` field (the visible `company` field is
   real, so the trap uses a different name); a non-empty value ⇒ bot. Tripped
   submissions return silent success, no email sent.
-- **Time-trap** — client sends `elapsedMs` (time since form mount); submissions
+- **Time-trap**: client sends `elapsedMs` (time since form mount); submissions
   under 3s are silently dropped.
-- **Validation** — required name/email, valid email format, length caps
+- **Validation**: required name/email, valid email format, length caps
   (name 100 / email 200 / company 150 / message 5000), and messages with >2
   links are dropped.
-- **HTML escaping** — all user values are HTML-entity-escaped (`escapeHtml`)
+- **HTML escaping**: all user values are HTML-entity-escaped (`escapeHtml`)
   before interpolation into the email; subject is plain-text sanitized. Closed a
   pre-existing HTML-injection hole.
 
@@ -43,9 +43,9 @@ Turnstile.
 
 ## Analytics (added 2026-08-08)
 
-Google Analytics 4 wired up per the vault's GA4 protocol — none existed before. `src/app/layout.tsx`
+Google Analytics 4 wired up per the vault's GA4 protocol; none existed before. `src/app/layout.tsx`
 renders `@next/third-parties/google`'s `<GoogleAnalytics gaId={...} />`, reading
-`NEXT_PUBLIC_GA_MEASUREMENT_ID` (never hardcoded). Documented in `.env.example` (new file — the
+`NEXT_PUBLIC_GA_MEASUREMENT_ID` (never hardcoded). Documented in `.env.example` (new file; the
 repo's `.gitignore` blanket-ignored `.env*`, so a `!.env.example` exception was added too). Measurement
 ID `G-PS99MQTJMF`, set in Vercel → Production only. Confirmed live via `gtag.js?id=G-PS99MQTJMF` in
 the served HTML. `@vercel/analytics` also runs alongside GA4, unrelated/separate.

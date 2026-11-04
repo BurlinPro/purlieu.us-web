@@ -1,6 +1,6 @@
 import type { InsightPost } from './types'
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://purlieu.us'
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.purlieu.us'
 export const SITE_NAME = 'Purlieu Management'
 export const FOUNDER_NAME = 'Burton W. Crapps Sr.'
 export const LINKEDIN_URL = 'https://linkedin.com/in/burtoncrapps'
@@ -57,15 +57,8 @@ export const organizationSchema = {
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      telephone: '+63-917-550-8849',
+      telephone: '+63-997-966-5864',
       areaServed: 'PH',
-      availableLanguage: 'English',
-    },
-    {
-      '@type': 'ContactPoint',
-      contactType: 'sales',
-      telephone: '+65-3163-1336',
-      areaServed: 'SG',
       availableLanguage: 'English',
     },
   ],
@@ -82,7 +75,7 @@ export const websiteSchema = {
   inLanguage: 'en-US',
 }
 
-/** Founder entity — strengthens E-E-A-T and article authorship. */
+/** Founder entity: strengthens E-E-A-T and article authorship. */
 export const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',

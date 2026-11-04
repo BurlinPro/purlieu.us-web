@@ -91,7 +91,7 @@ export default function AboutPage() {
     <div className="pt-20">
       <JsonLd data={personSchema} />
 
-      {/* ── Page header — no photo here ────────────────────── */}
+      {/* ── Page header: no photo here ────────────────────── */}
       <section className="bg-cream topo-bg py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <span className="gold-rule" />
@@ -117,7 +117,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
-            {/* Sticky photo — reasonably sized, not dominant */}
+            {/* Sticky photo: reasonably sized, not dominant */}
             <div className="lg:col-span-2">
               <div className="sticky top-28">
                 <div className="relative max-w-xs mx-auto lg:mx-0">
@@ -161,14 +161,14 @@ export default function AboutPage() {
                     </a>
                     <div className="flex items-center gap-2">
                       <a
-                        href="tel:+639175508849"
+                        href="tel:+639979665864"
                         className="flex-1 flex items-center gap-2.5 px-4 py-2.5 border border-navy/20 rounded-sm hover:border-navy hover:bg-navy/5 transition-all group"
                       >
                         <span className="text-sm">🇵🇭</span>
-                        <span className="font-sans text-sm font-medium text-navy">+63.917.550.8849</span>
+                        <span className="font-sans text-sm font-medium text-navy">+63.997.966.5864</span>
                       </a>
                       <a
-                        href="https://wa.me/639175508849"
+                        href="https://wa.me/639979665864"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp"

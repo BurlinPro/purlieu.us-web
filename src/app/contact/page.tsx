@@ -90,32 +90,19 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* SG */}
-                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-cream-deeper">
-                    <div className="flex items-center gap-3">
-                      <span className="font-sans text-xs font-semibold text-navy/40 w-6">🇸🇬</span>
-                      <div>
-                        <p className="font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide leading-none mb-0.5">Singapore</p>
-                        <a href="tel:+6531631336" className="font-sans text-sm font-medium text-navy hover:text-navy-mid transition-colors">
-                          +65.3163.1336
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* PH + WhatsApp */}
                   <div className="flex items-center justify-between gap-3 py-2.5 border-b border-cream-deeper">
                     <div className="flex items-center gap-3">
                       <span className="font-sans text-xs font-semibold text-navy/40 w-6">🇵🇭</span>
                       <div>
                         <p className="font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide leading-none mb-0.5">Philippines</p>
-                        <a href="tel:+639175508849" className="font-sans text-sm font-medium text-navy hover:text-navy-mid transition-colors">
-                          +63.917.550.8849
+                        <a href="tel:+639979665864" className="font-sans text-sm font-medium text-navy hover:text-navy-mid transition-colors">
+                          +63.997.966.5864
                         </a>
                       </div>
                     </div>
                     <a
-                      href="https://wa.me/639175508849"
+                      href="https://wa.me/639979665864"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#25D366]/10 text-[#25D366] rounded-sm font-sans text-xs font-semibold hover:bg-[#25D366]/20 transition-colors flex-shrink-0"

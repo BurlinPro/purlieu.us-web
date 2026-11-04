@@ -137,7 +137,7 @@ export default async function InsightPost({ params }: Props) {
           {/* Body */}
           <div className="insight-prose" dangerouslySetInnerHTML={{ __html: post.content }} />
 
-          {/* Share — repeat at bottom */}
+          {/* Share: repeat at bottom */}
           <div className="mt-12 pt-8 border-t border-cream-deeper flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <ShareButtons title={post.title} url={postUrl} />
             <a

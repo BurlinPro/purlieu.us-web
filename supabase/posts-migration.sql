@@ -1,5 +1,5 @@
 -- ============================================================
--- Purlieu Management — Insights Posts Table
+-- Purlieu Management: Insights Posts Table
 -- Run this in your Supabase project SQL editor
 -- ============================================================
 
@@ -28,4 +28,4 @@ create policy "Public can read published posts"
   using (published = true);
 
 -- Only service role (used by admin API routes) can write
--- No client-side write policies needed — admin uses service role key server-side
+-- No client-side write policies needed; admin uses service role key server-side

@@ -36,7 +36,7 @@ export default async function InsightsPage() {
       content: p.content,
       featured: p.featured,
     }))
-  } catch { /* Supabase not yet configured — show static posts only */ }
+  } catch { /* Supabase not yet configured: show static posts only */ }
 
   // Merge, de-dupe by slug, sort by date
   const seen = new Set<string>()

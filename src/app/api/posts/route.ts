@@ -14,7 +14,7 @@ async function isAuthenticated(): Promise<boolean> {
   return !!token && token === process.env.ADMIN_PASSWORD
 }
 
-// GET /api/posts — list all posts (admin only)
+// GET /api/posts: list all posts (admin only)
 export async function GET() {
   if (!(await isAuthenticated())) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -23,7 +23,7 @@ export async function GET() {
   return NextResponse.json({ posts })
 }
 
-// POST /api/posts — create a new post
+// POST /api/posts: create a new post
 export async function POST(req: Request) {
   if (!(await isAuthenticated())) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
   return NextResponse.json({ post }, { status: 201 })
 }
 
-// PATCH /api/posts — update a post
+// PATCH /api/posts: update a post
 export async function PATCH(req: Request) {
   if (!(await isAuthenticated())) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

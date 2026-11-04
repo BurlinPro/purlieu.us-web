@@ -115,7 +115,7 @@ export default function ServicesPage() {
         {/* Topographic layer */}
         <div className="absolute inset-0 topo-bg opacity-25 pointer-events-none" />
 
-        {/* Abstract city-grid lines — Singapore-inspired */}
+        {/* Abstract city-grid lines: Singapore-inspired */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <svg className="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
             {/* Horizontal grid lines */}
@@ -139,7 +139,7 @@ export default function ServicesPage() {
             <rect x="965" y="45"  width="25" height="155" fill="#B8935A" opacity="0.2"  />
             <rect x="1000"y="75"  width="30" height="125" fill="#B8935A" opacity="0.12" />
             <rect x="1040"y="35"  width="22" height="165" fill="#B8935A" opacity="0.22" />
-            {/* Connecting lines — trade routes */}
+            {/* Connecting lines: trade routes */}
             <line x1="200" y1="150" x2="900" y2="150" stroke="#B8935A" strokeWidth="1" strokeDasharray="6 4" opacity="0.4" />
             <line x1="300" y1="100" x2="850" y2="180" stroke="#B8935A" strokeWidth="0.5" strokeDasharray="4 6" opacity="0.25" />
             {/* Dots at key nodes */}

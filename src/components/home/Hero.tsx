@@ -11,7 +11,7 @@ export function Hero() {
         style={{ backgroundImage: "url('/images/hero-visual.jpg')" }}
       />
 
-      {/* Navy overlay — heavy enough for legibility, light enough to see the image */}
+      {/* Navy overlay: heavy enough for legibility, light enough to see the image */}
       <div className="absolute inset-0 bg-navy/78" />
 
       {/* Subtle topo texture over overlay */}
@@ -48,7 +48,7 @@ export function Hero() {
           {/* Gold rule */}
           <div className="w-14 h-0.5 bg-gold mb-8" />
 
-          {/* Sub-copy — problem-first, speaks directly to US C-suite */}
+          {/* Sub-copy: problem-first, speaks directly to US C-suite */}
           <p className="font-sans text-base md:text-lg text-white/70 leading-relaxed max-w-xl mb-4">
             Expanding into ASEAN, or moving into a cross-industry market on U.S. soil,
             is not a research problem. It is an execution problem. Most companies arrive

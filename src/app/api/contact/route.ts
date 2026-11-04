@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { name, email, company, message, website, elapsedMs } = body
 
-    // Honeypot tripped — silently accept so the bot sees success and moves on.
+    // Honeypot tripped: silently accept so the bot sees success and moves on.
     if (typeof website === 'string' && website.trim() !== '') {
       return NextResponse.json({ success: true })
     }
