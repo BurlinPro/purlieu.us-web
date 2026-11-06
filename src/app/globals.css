@@ -95,6 +95,9 @@
   .insight-prose ol {
     @apply list-decimal pl-5 space-y-2 mb-5 font-sans text-base leading-relaxed text-slate-700;
   }
+  .insight-prose a {
+    @apply text-navy underline underline-offset-2;
+  }
   .insight-prose .table-wrap {
     @apply overflow-x-auto mb-6;
   }

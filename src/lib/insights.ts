@@ -1,10 +1,21 @@
 import { InsightPost } from './types'
 import { bioCatalyticsPosts } from '@/content/insights/biocatalytics'
+import { capitalPosts } from '@/content/insights/capital'
 import { elNidoPost } from '@/content/insights/el-nido'
+import { roadPackerPosts } from '@/content/insights/roadpacker'
+
+// The November 5 articles share a date, so array order decides which lead "Latest"
+// and the home page. One from each series goes first.
+const [farmRoads, ...moreRoadPacker] = roadPackerPosts
+const [msmeLoans, ...moreCapital] = capitalPosts
 
 export const insights: InsightPost[] = [
   elNidoPost,
+  farmRoads,
+  msmeLoans,
   ...bioCatalyticsPosts,
+  ...moreRoadPacker,
+  ...moreCapital,
   {
     slug: 'relationships-market-entry-philippines',
     title: 'Nobody Buys From a Stranger: Why Relationships Are the Real Market-Entry Strategy in the Philippines',

@@ -5,7 +5,7 @@ import { totalMinutes, type TrackWithPosts } from '@/lib/insights-tracks'
 /** One panel per track, led by what the reader is working on. The whole panel opens
  *  the track's first article. "See all" jumps to the track's contents. */
 export function TrackPanels({ tracks }: { tracks: TrackWithPosts[] }) {
-  const columns = tracks.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'
+  const columns = tracks.length % 3 === 0 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'
 
   return (
     <div className={`grid grid-cols-1 gap-6 ${columns}`}>
