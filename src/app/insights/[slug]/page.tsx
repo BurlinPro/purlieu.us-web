@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { getAllInsights, getInsightBySlug } from '@/lib/insights'
-import { getPublishedPosts, getPostBySlug } from '@/lib/db/posts'
-import type { InsightPost } from '@/lib/types'
-import { ShareButtons } from '@/components/insights/ShareButtons'
+import { getInsightBySlug } from '@/lib/insights'
+import { getPostBySlug } from '@/lib/db/posts'
+import { dbToInsight, getAllPublishedInsights } from '@/lib/all-insights'
+import { formatInsightDate, getTrackPosition, insightUrl, toMeta } from '@/lib/insights-tracks'
+import { ShareButton } from '@/components/insights/ShareButton'
+import { TrackBanner } from '@/components/insights/TrackBanner'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { articleSchema, OG_IMAGE, SITE_NAME, FOUNDER_NAME } from '@/lib/seo'
 
@@ -13,19 +15,6 @@ export const dynamic = 'force-dynamic'
 
 interface Props {
   params: Promise<{ slug: string }>
-}
-
-function dbToInsight(p: Awaited<ReturnType<typeof getPublishedPosts>>[number]): InsightPost {
-  return {
-    slug: p.slug,
-    title: p.title,
-    date: p.published_at,
-    category: p.category,
-    readTime: p.read_time,
-    excerpt: p.excerpt,
-    content: p.content,
-    featured: p.featured,
-  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -54,12 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric',
-  })
-}
-
 export default async function InsightPost({ params }: Props) {
   const { slug } = await params
 
@@ -71,19 +54,22 @@ export default async function InsightPost({ params }: Props) {
 
   if (!post) notFound()
 
-  // Build full list for prev/next
-  const dbAll = await getPublishedPosts()
-  const allPosts: InsightPost[] = [
-    ...dbAll.map(dbToInsight),
-    ...getAllInsights(),
-  ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const allPosts = (await getAllPublishedInsights()).map(toMeta)
+  const position = getTrackPosition(slug, allPosts)
 
+  // Inside a track, move through the track, then hand off to the next track.
+  // Outside one, move by date.
   const idx = allPosts.findIndex((p) => p.slug === slug)
-  const prev = allPosts[idx + 1] ?? null
-  const next = allPosts[idx - 1] ?? null
+  const prev = position
+    ? position.previous && { label: 'Previous in this track', post: position.previous }
+    : allPosts[idx + 1] && { label: 'Previous', post: allPosts[idx + 1] }
+  const next = position
+    ? position.next
+      ? { label: `Next in ${position.track.name}`, post: position.next }
+      : position.nextTrack && { label: `Next track: ${position.nextTrack.name}`, post: position.nextTrack.posts[0] }
+    : allPosts[idx - 1] && { label: 'Next', post: allPosts[idx - 1] }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://purlieu.us'
-  const postUrl = `${siteUrl}/insights/${slug}`
+  const postUrl = insightUrl(slug)
 
   return (
     <div className="pt-20">
@@ -98,6 +84,8 @@ export default async function InsightPost({ params }: Props) {
           >
             <ArrowLeft size={13} /> All Insights
           </Link>
+
+          {position && <TrackBanner position={position} />}
 
           <div className="flex items-center gap-3 mb-6">
             <span className="font-sans text-xs font-semibold text-gold tracking-[0.15em] uppercase bg-gold/10 px-3 py-1.5 rounded-sm">
@@ -116,11 +104,11 @@ export default async function InsightPost({ params }: Props) {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="w-7 h-0.5 bg-gold" />
-              <span className="font-sans text-sm text-navy/50">{formatDate(post.date)}</span>
+              <span className="font-sans text-sm text-navy/50">{formatInsightDate(post.date)}</span>
               <span className="text-navy/20">·</span>
               <span className="font-sans text-sm text-navy/50">Burton W. Crapps Sr.</span>
             </div>
-            <ShareButtons title={post.title} url={postUrl} />
+            <ShareButton title={post.title} url={postUrl} />
           </div>
         </div>
       </section>
@@ -138,8 +126,7 @@ export default async function InsightPost({ params }: Props) {
           <div className="insight-prose" dangerouslySetInnerHTML={{ __html: post.content }} />
 
           {/* Share: repeat at bottom */}
-          <div className="mt-12 pt-8 border-t border-cream-deeper flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <ShareButtons title={post.title} url={postUrl} />
+          <div className="mt-12 pt-8 border-t border-cream-deeper flex flex-col-reverse items-start sm:flex-row sm:items-center sm:justify-between gap-4">
             <a
               href="https://linkedin.com/in/burtoncrapps"
               target="_blank"
@@ -148,6 +135,7 @@ export default async function InsightPost({ params }: Props) {
             >
               Follow Burton on LinkedIn →
             </a>
+            <ShareButton title={post.title} url={postUrl} />
           </div>
 
           {/* Author card */}
@@ -182,24 +170,24 @@ export default async function InsightPost({ params }: Props) {
           <div className="max-w-3xl mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {prev ? (
-                <Link href={`/insights/${prev.slug}`}
+                <Link href={`/insights/${prev.post.slug}`}
                   className="group flex flex-col gap-2 p-6 bg-white border border-cream-deeper hover:border-navy/20 rounded-sm hover:shadow-sm transition-all">
-                  <span className="flex items-center gap-1.5 font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide">
-                    <ArrowLeft size={12} /> Previous
+                  <span className="flex items-center gap-1.5 font-sans text-xs font-semibold text-navy/60 uppercase tracking-wide">
+                    <ArrowLeft size={12} /> {prev.label}
                   </span>
                   <span className="font-display font-semibold text-navy text-lg leading-snug group-hover:text-navy-mid transition-colors">
-                    {prev.title}
+                    {prev.post.title}
                   </span>
                 </Link>
               ) : <div />}
               {next && (
-                <Link href={`/insights/${next.slug}`}
+                <Link href={`/insights/${next.post.slug}`}
                   className="group flex flex-col gap-2 p-6 bg-white border border-cream-deeper hover:border-navy/20 rounded-sm hover:shadow-sm transition-all text-right">
-                  <span className="flex items-center gap-1.5 justify-end font-sans text-xs font-semibold text-navy/40 uppercase tracking-wide">
-                    Next <ArrowRight size={12} />
+                  <span className="flex items-center gap-1.5 justify-end font-sans text-xs font-semibold text-navy/60 uppercase tracking-wide">
+                    {next.label} <ArrowRight size={12} />
                   </span>
                   <span className="font-display font-semibold text-navy text-lg leading-snug group-hover:text-navy-mid transition-colors">
-                    {next.title}
+                    {next.post.title}
                   </span>
                 </Link>
               )}
