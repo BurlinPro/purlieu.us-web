@@ -1,6 +1,10 @@
 import { InsightPost } from './types'
+import { bioCatalyticsPosts } from '@/content/insights/biocatalytics'
+import { elNidoPost } from '@/content/insights/el-nido'
 
 export const insights: InsightPost[] = [
+  elNidoPost,
+  ...bioCatalyticsPosts,
   {
     slug: 'relationships-market-entry-philippines',
     title: 'Nobody Buys From a Stranger: Why Relationships Are the Real Market-Entry Strategy in the Philippines',

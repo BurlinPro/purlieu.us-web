@@ -95,6 +95,27 @@
   .insight-prose ol {
     @apply list-decimal pl-5 space-y-2 mb-5 font-sans text-base leading-relaxed text-slate-700;
   }
+  .insight-prose .table-wrap {
+    @apply overflow-x-auto mb-6;
+  }
+  .insight-prose table {
+    @apply w-full border-collapse font-sans text-sm leading-relaxed text-slate-700;
+  }
+  .insight-prose th {
+    @apply border-b-2 border-navy/20 px-3 py-2 text-left align-bottom font-semibold text-navy;
+  }
+  .insight-prose td {
+    @apply border-b border-cream-deeper px-3 py-2.5 align-top;
+  }
+  .insight-prose figure {
+    @apply my-8;
+  }
+  .insight-prose img {
+    @apply mx-auto h-auto max-h-[28rem] w-auto max-w-full rounded-sm;
+  }
+  .insight-prose figcaption {
+    @apply mt-2 text-center font-sans text-xs leading-relaxed text-navy/60;
+  }
 
   /* Gold accent rule */
   .gold-rule {

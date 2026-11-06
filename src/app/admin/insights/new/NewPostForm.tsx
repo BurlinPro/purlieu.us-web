@@ -6,7 +6,7 @@ import { Eye, EyeOff, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
 import { LinkedInIcon, XIcon } from '@/components/ui/BrandIcons'
 import { titleToSlug } from '@/lib/markdown'
 
-const CATEGORIES = ['Market Entry', 'Emerging Markets', 'Cross-Border', 'Financial Inclusion', 'Risk & Compliance', 'Strategy', 'Infrastructure', 'Capital', 'Insights']
+const CATEGORIES = ['Market Entry', 'Emerging Markets', 'Cross-Border', 'Financial Inclusion', 'Risk & Compliance', 'Environmental Services', 'Tourism & Hospitality', 'Strategy', 'Infrastructure', 'Capital', 'Insights']
 
 interface FormState {
   title: string

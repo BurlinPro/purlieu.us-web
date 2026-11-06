@@ -32,8 +32,9 @@ export const TRACKS: Track[] = [
       'relationships-market-entry-philippines',
       'invisible-infrastructure-emerging-markets',
       'asean-fdi-boom-philippines',
+      'el-nido-tourism-numbers',
     ],
-    categories: ['Market Entry', 'Emerging Markets', 'Cross-Border'],
+    categories: ['Market Entry', 'Emerging Markets', 'Cross-Border', 'Tourism & Hospitality'],
   },
   {
     slug: 'banking-credit-fraud',
@@ -46,6 +47,19 @@ export const TRACKS: Track[] = [
       'afasa-fraud-balance-sheet-philippine-banks',
     ],
     categories: ['Financial Inclusion', 'Risk & Compliance'],
+  },
+  {
+    slug: 'water-environmental-services',
+    name: 'Water & Environmental Services',
+    problem: 'Regulators price a discharge problem by the day, and someone in the building has to answer for it.',
+    color: '#2E6A8E',
+    slugs: [
+      'denr-maynilad-fine-mall-food-court',
+      'philippine-food-service-15-billion',
+      'biosurfactants-market-forecasts',
+      'five-questions-backing-environmental-services-company',
+    ],
+    categories: ['Environmental Services'],
   },
   {
     slug: 'building-at-the-frontier',
